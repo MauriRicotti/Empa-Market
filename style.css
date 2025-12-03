@@ -2370,6 +2370,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 8px 16px;
 }
 
+/* Quitar box-shadow en hover del botón "Elegir" dentro del modal */
+.modal .btn-choose:hover {
+    box-shadow: none !important;
+}
+
 @media (max-width: 768px) {
     .modal {
         padding: 0.5rem;
