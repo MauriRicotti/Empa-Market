@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpaMarket - Empanadas Artesanales Frescas</title>
+    <meta name="description" content="EmpaMarket: empanadas artesanales hechas con ingredientes frescos. Variedad de sabores: carne, pollo BBQ, queso, pizzas y bebidas. Pedidos por WhatsApp, envío disponible.">
+    <meta name="keywords" content="empanadas, comida argentina, delivery, empanadas caseras, delicias, pizzas, comida rápida">
+    <meta name="author" content="EmpaMarket">
+    <meta property="og:title" content="EmpaMarket - Empanadas Artesanales">
+    <meta property="og:description" content="Disfruta de las mejores empanadas artesanales frescas. Pide por WhatsApp y recibe en tu casa.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon.png">
+    <meta name="theme-color" content="#10b981">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <i class="bi bi-egg-fried" aria-hidden="true"></i>
+                <span>EMPA-MARKET</span>
+            </div>
+            <!-- Botón hamburguesa visible en móviles -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links">
+                <!-- Botón de tema móvil comentado a petición del usuario
+                <li class="nav-item mobile-only">
+                    <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Cambiar tema">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </li>
+                -->
+                <li><a href="#hero">Inicio</a></li>
+                <!-- Promociones removed -->
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="navbar-right">
+                <!-- Botón de tema de escritorio comentado a petición del usuario
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+                -->
+                <div class="cart-icon" id="cartIcon">
+                    <i class="bi bi-cart3" aria-hidden="true"></i>
+                    <span class="cart-label">Carrito</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-background" id="heroBackground"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-brand">EMPA-MARKET</h2>
+            <p class="hero-subtitle">Nuestras Delicias</p>
+            <div class="hero-status" id="heroStatus">
+                <span class="status-indicator open"></span>
+                <span class="status-text">Abierto - Tomando pedidos</span>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
+                    <i class="bi bi-bag-plus"></i> Hacer Pedido
+                </button>
+                <button class="btn btn-primary" onclick="window.open('https://instagram.com', '_blank')">
+                    <i class="bi bi-instagram"></i> Instagram
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promociones removed -->
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section class="productos" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestras Empanadas</h2>
+            <p class="section-subtitle">Hechas con ingredientes frescos y amor</p>
+            
+            <!-- FILTROS -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="bi bi-collection"></i> Todo
+                </button>
+                <button class="filter-btn" data-filter="empanadas">
+                    <i class="bi bi-egg-fried"></i> Empanadas
+                </button>
+                <button class="filter-btn" data-filter="delicias">
+                    <i class="bi bi-cookie"></i> Delicias
+                </button>
+                <button class="filter-btn" data-filter="pizzas">
+                    <i class="bi bi-diagram-3"></i> Pizzas
+                </button>
+                <button class="filter-btn" data-filter="bebidas">
+                    <i class="bi bi-cup"></i> Bebidas
+                </button>
+            </div>
+
+            <!-- GRID DE PRODUCTOS -->
+            <div class="productos-grid" id="productosGrid">
+                <!-- Los productos se cargarán aquí con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p class="section-subtitle">Más que empanadas, creamos momentos inolvidables.</p>
+
+                <p>Desde un pequeño local en 2015, EMPA-MARKET nació del sueño de compartir la alegría y el sabor de las empanadas artesanales con el mundo. Cada receta es el resultado de pasión, tradición y creatividad, fusionando ingredientes frescos con técnicas familiares y un toque moderno.</p>
+
+                <p>Con el paso del tiempo, nuestra dedicación nos permitió crecer y perfeccionar cada detalle: desde la selección de ingredientes hasta la experiencia completa dentro de nuestras tiendas. Apostamos por procesos artesanales, recetas atemporales y sabores que evocan recuerdos de hogar.</p>
+
+                <p>Hoy, somos una familia que crece junto a nuestros clientes. Nos inspira la sonrisa de cada persona que prueba nuestras delicias y nos motiva a innovar, manteniendo siempre la calidad y el cariño en cada bocado.</p>
+
+                <p>A lo largo de estos años, ampliamos nuestro menú con nuevas combinaciones, opciones para distintos gustos y ediciones especiales que celebran sabores y tradiciones del mundo. También hemos modernizado nuestros espacios para brindar un ambiente cálido, acogedor y auténtico, donde cada visita sea una experiencia única.</p>
+
+                <p>Nuestro compromiso es seguir compartiendo momentos, conservando la esencia que nos vio nacer y llevando el sabor artesanal a cada rincón posible.</p>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Clientes Felices</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Años de Sabor</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Recetas Exclusivas</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/about img.jpg" alt="Empanadas calientes">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN INSTAGRAM -->
+    <section class="instagram" id="instagram">
+        <div class="container">
+            <h2 class="section-title">Síguenos en Instagram</h2>
+            <p class="section-subtitle">@empa-marketoficial</p>
+
+            <!-- 6 cards grandes que simulan publicaciones de Instagram -->
+            <div class="instagram-feed instagram-grid-large">
+                <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 1">
+                    <div class="instagram-media" style="background-image: url('assets/Empanada 2.png');"></div>
+                    <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
+                </a>
+
+                <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 2">
+                    <div class="instagram-media" style="background-image: url('assets/Empanada 3.png');"></div>
+                    <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
+                </a>
+
+                <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 3">
+                    <div class="instagram-media" style="background-image: url('assets/pizza 1.jpg');"></div>
+                    <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
+                </a>
+
+                <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 4">
+                    <div class="instagram-media" style="background-image: url('assets/pizza 2.jpg');"></div>
+                    <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
+                </a>
+
+                <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 5">
+                    <div class="instagram-media" style="background-image: url('assets/coca.jpg');"></div>
+                    <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
+                </a>
+
+                <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 6">
+                    <div class="instagram-media" style="background-image: url('assets/placer.jpg');"></div>
+                    <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
+                </a>
+            </div>
+
+            <a href="https://instagram.com" target="_blank" class="btn btn-primary">
+                <i class="bi bi-arrow-up-right"></i> Ver más en Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Resuelve tus dudas sobre nuestros productos y servicios</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="bi bi-clock"></i> ¿Cuál es el tiempo de preparación?</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Los pedidos se preparan en aproximadamente 15-20 minutos. En horarios de alta demanda puede tomar hasta 30 minutos. Te notificaremos cuando esté listo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="bi bi-truck"></i> ¿Realizan entregas a domicilio?</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, realizamos entregas en las zonas cercanas al local. El costo varía según la distancia. También ofrecemos retiro en local sin costo adicional.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="bi bi-cash-coin"></i> ¿Cuáles son los métodos de pago?</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Aceptamos efectivo, transferencia bancaria y billeteras virtuales. El pago se realiza contra entrega o al retiro en local.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="bi bi-calendar3"></i> ¿Cuáles son los horarios de atención?</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Lunes a Viernes:</strong> 10:00 - 21:00<br><strong>Sábados:</strong> 11:00 - 22:00<br><strong>Domingos:</strong> 11:00 - 21:00</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="bi bi-box-seam"></i> ¿Puedo personalizar mi pedido?</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>¡Claro! Puedes agregar notas especiales en tu pedido. Indicamos preferencias como sin cebolla, sin queso, ingredientes adicionales, etc. Nuestro equipo harará su mejor esfuerzo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="bi bi-percent"></i> ¿Hay descuentos o promociones?</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, seguir nuestro Instagram <strong>@empa-marketoficial</strong> para conocer las promociones semanales, descuentos especiales y ofertas exclusivas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TESTIMONIOS -->
+    <section class="testimonios" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+            <p class="section-subtitle">Opiniones reales de personas que aman nuestras empanadas</p>
+            
+            <div class="testimonios-grid">
+                <div class="testimonios-card">
+                    <div class="testimonios-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonios-text">"Las empanadas más deliciosas que he probado. Siempre frescas y con ingredientes de calidad. ¡Recomendado!"</p>
+                    <div class="testimonios-autor">
+                        <div class="testimonios-avatar"><i class="bi bi-person-circle"></i></div>
+                        <div>
+                            <strong>María G.</strong>
+                            <span>Cliente desde 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonios-card">
+                    <div class="testimonios-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonios-text">"Atención excelente, entregas rápidas y los productos siempre llegan calientes. Volvería mil veces."</p>
+                    <div class="testimonios-autor">
+                        <div class="testimonios-avatar"><i class="bi bi-person-circle"></i></div>
+                        <div>
+                            <strong>Juan P.</strong>
+                            <span>Pedidos regulares</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonios-card">
+                    <div class="testimonios-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonios-text">"La mejor opción para fiestas y reuniones. Variedad de sabores, excelente precio y presentación hermosa."</p>
+                    <div class="testimonios-autor">
+                        <div class="testimonios-avatar"><i class="bi bi-person-circle"></i></div>
+                        <div>
+                            <strong>Sofia L.</strong>
+                            <span>Eventos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonios-card">
+                    <div class="testimonios-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonios-text">"Ordeno semanalmente. Las empanadas tienen ese sabor casero auténtico que se aprecia. ¡Muchas gracias!"</p>
+                    <div class="testimonios-autor">
+                        <div class="testimonios-avatar"><i class="bi bi-person-circle"></i></div>
+                        <div>
+                            <strong>Carlos M.</strong>
+                            <span>Familia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonios-card">
+                    <div class="testimonios-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonios-text">"El equipo siempre me trata con respeto y profesionalismo. Las empanadas llegan bien presentadas y sabrosas. Es mi opción favorita para llevar al trabajo."</p>
+                    <div class="testimonios-autor">
+                        <div class="testimonios-avatar"><i class="bi bi-person-circle"></i></div>
+                        <div>
+                            <strong>Andrea T.</strong>
+                            <span>Cliente corporativo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonios-card">
+                    <div class="testimonios-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonios-text">"Descubrí EMPA-MARKET hace poco y ya es mi favorito en la zona. Los sabores innovadores combinados con la calidad clásica hacen la diferencia. ¡Muy recomendado!"</p>
+                    <div class="testimonios-autor">
+                        <div class="testimonios-avatar"><i class="bi bi-person-circle"></i></div>
+                        <div>
+                            <strong>Roberto D.</strong>
+                            <span>Nuevos clientes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO / FRANQUICIA -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Abre tu Propia Franquicia</h2>
+            <p class="section-subtitle">Únete a nuestro crecimiento y se parte de la familia EMPA-MARKET</p>
+            
+            <div class="contacto-content">
+                <div class="contacto-form">
+                    <h3>Solicita Información</h3>
+                    <form id="franchiseForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" placeholder="Cuéntanos sobre ti y tus intereses" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-send"></i> Enviar Solicitud
+                        </button>
+                    </form>
+                    <div class="franchise-info" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                        <p style="font-size: 0.9rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem;">
+                            <strong style="color: var(--text);">¿Por qué ser franquiciado?</strong><br>
+                            Únete a una marca en crecimiento con más de 10 años de experiencia. Somos expertos en empanadas artesanales y te brindaremos todo el apoyo necesario para tu éxito.
+                        </p>
+                        <ul style="font-size: 0.9rem; color: var(--gray); margin-left: 1.2rem; line-height: 1.8;">
+                            <li>✓ Productos de calidad comprobada</li>
+                            <li>✓ Capacitación completa</li>
+                            <li>✓ Soporte operativo continuo</li>
+                            <li>✓ Menú diverso y probado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <p>Monteagudo Bernardo 3394, B1888 Florencio Varela, Provincia de Buenos Aires</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-telephone"></i>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <p><a href="tel:541141948773" style="color: inherit; text-decoration: none;">(54) 11 4194-8773</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p><a href="mailto:info@empa-market.com" style="color: inherit; text-decoration: none;">info@empa-market.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item info-item-horarios">
+                        <i class="bi bi-calendar-event"></i>
+                        <div>
+                            <strong>Horarios</strong>
+                            <div class="horarios-grid">
+                                <p class="horario-item"><strong>Lun-Vie:</strong> 10:00 - 21:00</p>
+                                <p class="horario-item"><strong>Sábado:</strong> 11:00 - 22:00</p>
+                                <p class="horario-item"><strong>Domingo:</strong> 11:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- MAPA INTERACTIVO -->
+                    <div class="mapa" id="mapa">
+                        <iframe src="https://www.google.com/maps?q=Monteagudo+Bernardo+3394,+B1888+Florencio+Varela,+Provincia+de+Buenos+Aires&output=embed" width="100%" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>EMPA-MARKET</h4>
+                    <p>Las mejores empanadas artesanales con ingredientes frescos. Hecho con amor desde 2015.</p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me/541141948773" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Política y Legal</h4>
+                    <ul>
+                        <li><a href="#terminos" onclick="mostrarModal('terminos')">Términos y Condiciones</a></li>
+                        <li><a href="#privacidad" onclick="mostrarModal('privacidad')">Política de Privacidad</a></li>
+                        <li><a href="#cookies" onclick="mostrarModal('cookies')">Política de Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horarios</h4>
+                    <p class="horarios-footer">
+                        <strong>Lun-Vie:</strong> 10:00 - 21:00<br>
+                        <strong>Sábado:</strong> 11:00 - 22:00<br>
+                        <strong>Domingo:</strong> 11:00 - 21:00
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EMPA-MARKET. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CARRITO SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Mi Carrito</h2>
+            <button class="close-cart" onclick="closeCart()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Los items del carrito se mostrarán aquí -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Impuestos:</span>
+                    <span id="taxes">$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+            <button id="checkoutBtn" class="btn btn-primary btn-block" onclick="openOrderModal()">
+                <i class="bi bi-credit-card"></i> Realizar el pedido
+            </button>
+        </div>
+    </div>
+
+    <!-- OVERLAY DEL CARRITO -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <!-- WIDGET FLOTANTE WHATSAPP REMOVIDO -->
+
+    <script src="main.js"></script>
+    <!-- MODALES DE POLÍTICAS -->
+    <div id="terminosModal" class="policy-modal" aria-hidden="true">
+        <div class="policy-modal-backdrop" onclick="cerrarModal('terminos')"></div>
+        <div class="policy-modal-panel" role="dialog" aria-modal="true">
+            <button class="policy-modal-close" aria-label="Cerrar" onclick="cerrarModal('terminos')"><i class="bi bi-x-lg"></i></button>
+            <h2>Términos y Condiciones</h2>
+            <div class="policy-content">
+                <h3>1. Aceptación de Términos</h3>
+                <p>Al utilizar nuestro sitio web y realizar pedidos, aceptas estos términos y condiciones. Si no estás de acuerdo, no utilices nuestros servicios.</p>
+                
+                <h3>2. Sobre Nuestros Productos</h3>
+                <p>Todos nuestros productos se preparan con ingredientes frescos de calidad. Las imágenes son referenciales. Pueden haber variaciones menores en presentación.</p>
+                
+                <h3>3. Pedidos y Pagos</h3>
+                <p>Los pedidos se confirman después de recibir el pago. Aceptamos efectivo, transferencia y billeteras virtuales. Los precios pueden variar según disponibilidad.</p>
+                
+                <h3>4. Entregas</h3>
+                <p>Realizamos entregas en zonas cercanas. El costo de envío varía según ubicación. No nos hacemos responsables por retrasos causados por terceros.</p>
+                
+                <h3>5. Cambios y Cancelaciones</h3>
+                <p>Los pedidos pueden cancelarse hasta 30 minutos antes de la preparación. Cambios de pedido están sujetos a disponibilidad.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacidadModal" class="policy-modal" aria-hidden="true">
+        <div class="policy-modal-backdrop" onclick="cerrarModal('privacidad')"></div>
+        <div class="policy-modal-panel" role="dialog" aria-modal="true">
+            <button class="policy-modal-close" aria-label="Cerrar" onclick="cerrarModal('privacidad')"><i class="bi bi-x-lg"></i></button>
+            <h2>Política de Privacidad</h2>
+            <div class="policy-content">
+                <h3>1. Información que Recopilamos</h3>
+                <p>Recopilamos información personal como nombre, teléfono, email y dirección para procesar tus pedidos y entregas.</p>
+                
+                <h3>2. Uso de Información</h3>
+                <p>Tu información se utiliza únicamente para:</p>
+                <ul>
+                    <li>Procesar y entregar tus pedidos</li>
+                    <li>Contactarte sobre tu pedido</li>
+                    <li>Enviar promociones (si lo autorizas)</li>
+                </ul>
+                
+                <h3>3. Protección de Datos</h3>
+                <p>Tomamos medidas para proteger tu información personal. No la compartimos con terceros sin tu consentimiento.</p>
+                
+                <h3>4. Cookies</h3>
+                <p>Utilizamos cookies para mejorar tu experiencia. Puedes deshabilitarlas en tu navegador.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookiesModal" class="policy-modal" aria-hidden="true">
+        <div class="policy-modal-backdrop" onclick="cerrarModal('cookies')"></div>
+        <div class="policy-modal-panel" role="dialog" aria-modal="true">
+            <button class="policy-modal-close" aria-label="Cerrar" onclick="cerrarModal('cookies')"><i class="bi bi-x-lg"></i></button>
+            <h2>Política de Cookies</h2>
+            <div class="policy-content">
+                <h3>¿Qué son las Cookies?</h3>
+                <p>Las cookies son pequeños archivos de texto que se guardan en tu dispositivo cuando visitas un sitio web.</p>
+                
+                <h3>Tipos de Cookies que Usamos</h3>
+                <ul>
+                    <li><strong>Cookies Esenciales:</strong> Necesarias para el funcionamiento del sitio</li>
+                    <li><strong>Cookies de Rendimiento:</strong> Para entender cómo usas el sitio</li>
+                    <li><strong>Cookies de Marketing:</strong> Para mostrar anuncios relevantes</li>
+                </ul>
+                
+                <h3>Controlar Cookies</h3>
+                <p>Puedes controlar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitarlas puede afectar la funcionalidad del sitio.</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- MODAL DE PEDIDO -->
+    <div id="orderModal" class="order-modal" aria-hidden="true">
+        <div class="order-modal-backdrop" onclick="closeOrderModal()"></div>
+        <div class="order-modal-panel" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+            <button class="order-modal-close" aria-label="Cerrar" onclick="closeOrderModal()"><i class="bi bi-x-lg"></i></button>
+            <h3 id="orderModalTitle">Completar pedido</h3>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="orderNombre">Nombre</label>
+                    <input type="text" id="orderNombre" name="orderNombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderTelefono">Teléfono</label>
+                    <input type="tel" id="orderTelefono" name="orderTelefono" placeholder="Ej: +54 9 11 1234-5678" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderDireccion">Dirección (opcional)</label>
+                    <input type="text" id="orderDireccion" name="orderDireccion" placeholder="Calle, número, piso">
+                </div>
+                <div class="form-group">
+                    <label for="orderNota">Nota (opcional)</label>
+                    <textarea id="orderNota" name="orderNota" rows="3" placeholder="Ej: Sin cebolla, retirar a las 13:00"></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeOrderModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

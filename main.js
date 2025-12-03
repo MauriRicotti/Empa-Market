@@ -1,0 +1,1130 @@
+// DATOS DE PRODUCTOS
+const productos = [
+    // EMPANADAS
+    {
+        id: 1,
+        nombre: 'Carne Molida',
+        categoria: 'empanadas',
+        seccion: 'Empanadas',
+        precio: 4.5,
+        descripcion: 'Carne picada con cebolla y especias',
+        imagen: 'assets/Empanada 1.png'
+    },
+    {
+        id: 2,
+        nombre: 'Pollo BBQ',
+        categoria: 'empanadas',
+        seccion: 'Empanadas',
+        precio: 5,
+        descripcion: 'Pollo desmenuzado con salsa BBQ casera',
+        imagen: 'assets/Empanada 2.png'
+    },
+    {
+        id: 3,
+        nombre: 'Queso y Jamón',
+        categoria: 'empanadas',
+        seccion: 'Empanadas',
+        precio: 5.5,
+        descripcion: 'Queso fundido con jamón premium',
+        imagen: 'assets/Empanada 3.png'
+    },
+    {
+        id: 4,
+        nombre: 'Espinaca y Queso',
+        categoria: 'empanadas',
+        seccion: 'Empanadas',
+        precio: 5,
+        descripcion: 'Espinaca fresca con queso ricotta',
+        imagen: 'assets/Empanada 4.png'
+    },
+    {
+        id: 5,
+        nombre: 'Atún Fresco',
+        categoria: 'empanadas',
+        seccion: 'Empanadas',
+        precio: 6,
+        descripcion: 'Atún con ají y vegetales frescos',
+        imagen: 'assets/Empanada 5.png'
+    },
+    {
+        id: 6,
+        nombre: 'Corned Beef',
+        categoria: 'empanadas',
+        seccion: 'Empanadas',
+        precio: 5.5,
+        descripcion: 'Corned beef tierno con cebolla',
+        imagen: 'assets/Empanada 6.png'
+    },
+    // DELICIAS
+    {
+        id: 7,
+        nombre: 'Medialunas Saladas',
+        categoria: 'delicias',
+        seccion: 'Delicias',
+        precio: 3.5,
+        descripcion: 'Medialunas saladas crujientes y doradas',
+        imagen: 'assets/medialunas saladas.jpeg'
+    },
+    {
+        id: 8,
+        nombre: 'Medialunas Dulces',
+        categoria: 'delicias',
+        seccion: 'Delicias',
+        precio: 3.5,
+        descripcion: 'Medialunas dulces con azúcar brillante',
+        imagen: 'assets/medialunas.jpg'
+    },
+    {
+        id: 9,
+        nombre: 'Chipá',
+        categoria: 'delicias',
+        seccion: 'Delicias',
+        precio: 2.5,
+        descripcion: 'Chipá tradicional hecho con queso y almidón',
+        imagen: 'assets/chipa.webp'
+    },
+    {
+        id: 10,
+        nombre: 'Pastelitos',
+        categoria: 'delicias',
+        seccion: 'Delicias',
+        precio: 3,
+        descripcion: 'Pastelitos rellenos de dulce de leche',
+        imagen: 'assets/pastelitos.webp '
+    },
+    // PIZZAS
+    {
+        id: 11,
+        nombre: 'Pizza Margarita',
+        categoria: 'pizzas',
+        seccion: 'Pizzas',
+        precio: 10,
+        descripcion: 'Clásica pizza con tomate, mozzarella y albahaca',
+        imagen: 'assets/pizza 1.jpg'
+    },
+    {
+        id: 12,
+        nombre: 'Pizza Pepperoni',
+        categoria: 'pizzas',
+        seccion: 'Pizzas',
+        precio: 11,
+        descripcion: 'Pepperoni fresco con queso derretido',
+        imagen: 'assets/pizza 2.jpg'
+    },
+    {
+        id: 13,
+        nombre: 'Pizza Cuatro Quesos',
+        categoria: 'pizzas',
+        seccion: 'Pizzas',
+        precio: 12,
+        descripcion: 'Combinación de 4 quesos premium',
+        imagen: 'assets/pizza 3.jpg'
+    },
+    // BEBIDAS
+    {
+        id: 14,
+        nombre: 'Coca-cola 500ml',
+        categoria: 'bebidas',
+        seccion: 'Bebidas',
+        precio: 2.5,
+        descripcion: 'Coca-cola clásica 500ml',
+        imagen: 'assets/coca.jpg'
+    },
+    {
+        id: 15,
+        nombre: 'Placer 500ml',
+        categoria: 'bebidas',
+        seccion: 'Bebidas',
+        precio: 2,
+        descripcion: 'Placer sabor a mandarina 500ml',
+        imagen: 'assets/placer.jpg'
+    },
+    {
+        id: 16,
+        nombre: 'Cepita',
+        categoria: 'bebidas',
+        seccion: 'Bebidas',
+        precio: 2.75,
+        descripcion: 'Cepita jugo natural en botella',
+        imagen: 'assets/cepita.jpg'
+    },
+    {
+        id: 17,
+        nombre: 'Sprite',
+        categoria: 'bebidas',
+        seccion: 'Bebidas',
+        precio: 2.5,
+        descripcion: 'Sprite limón fresco 500ml',
+        imagen: 'assets/sprite.jpg'
+    },
+    {
+        id: 18,
+        nombre: 'Pepsi',
+        categoria: 'bebidas',
+        seccion: 'Bebidas',
+        precio: 2.5,
+        descripcion: 'Pepsi cola 500ml',
+        imagen: 'assets/pepsi.jpg'
+    },
+    {
+        id: 19,
+        nombre: 'Manaos',
+        categoria: 'bebidas',
+        seccion: 'Bebidas',
+        precio: 1.75,
+        descripcion: 'Manaos sabores variados 1l',
+        imagen: 'assets/manaos.jpg'
+    }
+];
+
+// CARRITO
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// Número de WhatsApp del local (incluir código de país). Ajustar si es otro país.
+const WHATSAPP_NUMBER = '541141948773';
+let currentSlide = 0;
+let filtroActual = 'all';
+
+// HORARIOS DE FUNCIONAMIENTO
+const HORARIOS = {
+    lunes: { abierta: 10, cierra: 21 },      // 10:00 - 21:00
+    martes: { abierta: 10, cierra: 21 },     // 10:00 - 21:00
+    miercoles: { abierta: 10, cierra: 21 },  // 10:00 - 21:00
+    jueves: { abierta: 10, cierra: 21 },     // 10:00 - 21:00
+    viernes: { abierta: 10, cierra: 21 },    // 10:00 - 21:00
+    sabado: { abierta: 11, cierra: 22 },     // 11:00 - 22:00
+    domingo: { abierta: 11, cierra: 21 }     // 11:00 - 21:00
+};
+
+// FUNCIÓN: Inicializar tema (detectar preferencia del sistema y del usuario)
+function inicializarTema() {
+    const temaGuardado = localStorage.getItem('tema');
+    const preferenciaDelSistema = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    let debeSerTemaClaro = false;
+    
+    if (temaGuardado) {
+        // Si el usuario tiene una preferencia guardada, usarla
+        debeSerTemaClaro = temaGuardado === 'light';
+    } else {
+        // Si no, usar la preferencia del sistema (invertida: light si el sistema es light)
+        debeSerTemaClaro = !preferenciaDelSistema;
+    }
+    
+    aplicarTema(debeSerTemaClaro, false);
+    actualizarIconoTema(debeSerTemaClaro);
+    
+    // Escuchar cambios en la preferencia del sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('tema')) {
+            const esOscuro = e.matches;
+            aplicarTema(!esOscuro);
+            actualizarIconoTema(!esOscuro);
+        }
+    });
+    
+    // Escuchar clicks en el botón de tema
+    // Enlazar todos los toggles de tema (desktop/mobile). Después de la limpieza
+    // dejamos solo el del panel lateral; esto asegura que si hay varios, se manejen.
+    const themeToggles = document.querySelectorAll('#themeToggle, #themeToggleMobile');
+    themeToggles.forEach(t => {
+        if (t) t.addEventListener('click', alternarTema);
+    });
+
+    // Pre-cargar imágenes críticas (hero) para reducir el retardo al cambiar tema
+    precargarImagenesHero();
+}
+
+// Pre-cargar imágenes del hero para que el swap sea instantáneo
+function precargarImagenesHero() {
+    const imgs = [
+        'assets/Hero section.jpg',
+        'assets/img hero 2.jpg'
+    ];
+    // Guardar referencias para evitar garbage collection prematuro
+    window.__preloadedHeroImages = window.__preloadedHeroImages || [];
+    imgs.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        window.__preloadedHeroImages.push(img);
+    });
+}
+
+function aplicarTema(esClaro, animate = true) {
+    const html = document.documentElement;
+
+    // Si no queremos animación (por ejemplo, al cargar la página), aplicar directamente
+    if (!animate) {
+        if (esClaro) html.classList.add('light-theme');
+        else html.classList.remove('light-theme');
+
+        cambiarImagenHero(esClaro);
+        localStorage.setItem('tema', esClaro ? 'light' : 'dark');
+        return;
+    }
+
+    // Aplicar la clase de tema y el icono inmediatamente para que la UI responda rápido
+    if (esClaro) html.classList.add('light-theme');
+    else html.classList.remove('light-theme');
+    actualizarIconoTema(esClaro);
+    localStorage.setItem('tema', esClaro ? 'light' : 'dark');
+
+    // Animación sutil: cambiar la imagen al instante y usar solo la overlay para suavizar
+    const heroBackground = document.getElementById('heroBackground');
+    const heroOverlay = document.querySelector('.hero-overlay');
+    const ANIM_MS = 220; // corto, solo para la overlay
+
+    // Cambiar imagen al instante (las imágenes ya deberían estar precargadas)
+    cambiarImagenHero(esClaro);
+
+    // Animar solo la overlay para dar una sensación de transición sin ocultar el fondo
+    if (heroOverlay) {
+        // añadir clase que reduce la opacidad y luego volver a su estado
+        heroOverlay.classList.add('fade-out-overlay');
+        setTimeout(() => {
+            heroOverlay.classList.remove('fade-out-overlay');
+        }, ANIM_MS);
+    }
+}
+
+function cambiarImagenHero(esClaro) {
+    const heroBackground = document.getElementById('heroBackground');
+    if (!heroBackground) return;
+    
+    if (esClaro) {
+        // Imagen para tema claro: usar la imagen clara (overlay oscuro se aplica con .hero-overlay)
+        heroBackground.style.backgroundImage = 'url("assets/img hero 2.jpg")';
+        heroBackground.style.filter = 'brightness(0.85) contrast(1.05) saturate(0.98)';
+    } else {
+        // Imagen para tema oscuro (original)
+        heroBackground.style.backgroundImage = 'url("assets/Hero section.jpg")';
+        heroBackground.style.filter = 'none';
+    }
+}
+
+function actualizarIconoTema(esClaro) {
+    // Actualizar todos los toggles si hay varios (desktop + mobile)
+    const toggles = document.querySelectorAll('#themeToggle, #themeToggleMobile');
+    toggles.forEach(themeToggle => {
+        if (!themeToggle) return;
+        const icono = themeToggle.querySelector('i');
+        if (icono) {
+            if (esClaro) icono.className = 'bi bi-sun-fill';
+            else icono.className = 'bi bi-moon-fill';
+        }
+        if (esClaro) themeToggle.setAttribute('aria-label', 'Cambiar a tema oscuro');
+        else themeToggle.setAttribute('aria-label', 'Cambiar a tema claro');
+    });
+}
+
+function alternarTema() {
+    const html = document.documentElement;
+    const esActualmenteclaro = html.classList.contains('light-theme');
+    aplicarTema(!esActualmenteclaro);
+}
+
+// FUNCIÓN: Actualizar estado de abierto/cerrado
+function actualizarEstadoHero() {
+    const heroStatus = document.getElementById('heroStatus');
+    if (!heroStatus) return;
+    
+    const ahora = new Date();
+    const diaSemana = ahora.getDay(); // 0 = domingo, 1 = lunes, etc.
+    const horaActual = ahora.getHours();
+    
+    // Mapear día de semana (0-6) a los nombres en HORARIOS
+    const diasMap = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
+    const diaHoy = diasMap[diaSemana];
+    const horarioHoy = HORARIOS[diaHoy];
+    
+    const estaAbierto = horaActual >= horarioHoy.abierta && horaActual < horarioHoy.cierra;
+    
+    const statusIndicator = heroStatus.querySelector('.status-indicator');
+    const statusText = heroStatus.querySelector('.status-text');
+    
+    if (estaAbierto) {
+        statusIndicator.classList.remove('closed');
+        statusIndicator.classList.add('open');
+        statusText.textContent = 'Abierto - Tomando pedidos';
+    } else {
+        statusIndicator.classList.remove('open');
+        statusIndicator.classList.add('closed');
+        statusText.textContent = 'Cerrado';
+    }
+}
+
+// INICIALIZACIÓN
+document.addEventListener('DOMContentLoaded', () => {
+    inicializarTema();
+    inicializarProductos();
+    actualizarCarritoUI();
+    inicializarFiltros();
+    agregarParallax();
+    inicializarMenuHamburguesa();
+    inicializarFAQ();
+    actualizarEstadoHero();
+    
+    // Actualizar estado cada minuto para reflejar cambios de horario
+    setInterval(actualizarEstadoHero, 60000);
+
+    // Seguridad: asegurar que el modal de completar pedido esté oculto al cargar
+    const orderModal = document.getElementById('orderModal');
+    if (orderModal && orderModal.getAttribute('aria-hidden') !== 'true') {
+        orderModal.setAttribute('aria-hidden', 'true');
+    }
+});
+
+// MENU HAMBURGUESA: abrir/cerrar en móviles
+function inicializarMenuHamburguesa() {
+    const btn = document.getElementById('hamburgerBtn');
+    const nav = document.querySelector('.nav-links');
+    if (!btn || !nav) return;
+
+    nav.classList.remove('mobile', 'open');
+    try { document.body.classList.remove('no-scroll'); } catch (e) {}
+
+    btn.addEventListener('click', (e) => {
+        const isOpen = nav.classList.contains('open');
+        nav.classList.add('mobile');
+        if (isOpen) {
+            nav.classList.remove('open');
+            btn.setAttribute('aria-label', 'Abrir menú');
+            try { document.body.classList.remove('no-scroll'); } catch (e) {}
+        } else {
+            nav.classList.add('open');
+            btn.setAttribute('aria-label', 'Cerrar menú');
+            try { document.body.classList.add('no-scroll'); } catch (e) {}
+        }
+    });
+
+    // Botón X para cerrar el menú lateral
+    let closeBtn = nav.querySelector('.close-menu');
+    if (!closeBtn) {
+        closeBtn = document.createElement('button');
+        closeBtn.className = 'close-menu';
+        closeBtn.innerHTML = '<i class="bi bi-x-lg"></i>';
+        closeBtn.setAttribute('aria-label', 'Cerrar menú');
+        nav.insertBefore(closeBtn, nav.firstChild);
+    }
+    closeBtn.onclick = () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-label', 'Abrir menú');
+        try { document.body.classList.remove('no-scroll'); } catch (e) {}
+    };
+
+    // Cerrar menú al hacer click fuera del panel lateral
+    document.addEventListener('mousedown', (e) => {
+        if (nav.classList.contains('open')) {
+            if (!nav.contains(e.target) && e.target !== btn) {
+                nav.classList.remove('open');
+                btn.setAttribute('aria-label', 'Abrir menú');
+                try { document.body.classList.remove('no-scroll'); } catch (e) {}
+            }
+        }
+    });
+
+    nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            nav.classList.remove('open');
+            try { document.body.classList.remove('no-scroll'); } catch (e) {}
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if ((e.key === 'Escape' || e.key === 'Esc') && nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            try { document.body.classList.remove('no-scroll'); } catch (err) {}
+            btn.setAttribute('aria-label', 'Abrir menú');
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        const w = window.innerWidth;
+        if (w > 768) {
+            if (nav.classList.contains('open') || nav.classList.contains('mobile')) {
+                nav.classList.remove('open', 'mobile');
+                try { document.body.classList.remove('no-scroll'); } catch (e) {}
+                btn.setAttribute('aria-label', 'Abrir menú');
+            }
+        }
+    });
+}
+
+// PARALLAX EFFECT
+function agregarParallax() {
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero-background');
+        if (hero) {
+            const scrollPosition = window.scrollY;
+            hero.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        }
+    });
+}
+
+// PRODUCTOS
+function inicializarProductos() {
+    mostrarProductos(productos, 'all');
+}
+
+function mostrarProductos(productosAMostrar, filtro) {
+    const grid = document.getElementById('productosGrid');
+    // transición de salida
+    grid.classList.remove('fade-in');
+    grid.classList.add('fade-out');
+
+    // esperar a que termine la transición antes de reemplazar contenido
+    setTimeout(() => {
+        grid.innerHTML = '';
+    
+    let productosAgrupados = {};
+    
+    // Agrupar por sección
+    productosAMostrar.forEach(producto => {
+        const seccion = producto.seccion;
+        if (!productosAgrupados[seccion]) {
+            productosAgrupados[seccion] = [];
+        }
+        productosAgrupados[seccion].push(producto);
+    });
+    
+    // Orden específico de secciones
+    const ordenSecciones = ['Empanadas', 'Delicias', 'Pizzas', 'Bebidas'];
+    
+    let primeraSección = true;
+    
+    ordenSecciones.forEach(seccion => {
+        if (productosAgrupados[seccion] && productosAgrupados[seccion].length > 0) {
+            // Agregar separador (excepto antes de la primera sección)
+            if (!primeraSección) {
+                const separador = document.createElement('div');
+                separador.className = 'section-separator';
+                grid.appendChild(separador);
+            }
+            
+            // Agregar título de sección
+            const titulo = document.createElement('div');
+            titulo.className = 'section-header';
+            titulo.innerHTML = `
+                <h3>${seccion}</h3>
+                <div class="separator-line"></div>
+            `;
+            grid.appendChild(titulo);
+            
+            // Agregar productos de la sección
+            productosAgrupados[seccion].forEach((producto, idx) => {
+                const card = document.createElement('div');
+                card.className = 'producto-card';
+                card.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-image">
+                    <div class="producto-info">
+                        <h3 class="producto-name">${producto.nombre}</h3>
+                        <p class="producto-description">${producto.descripcion}</p>
+                        <p class="producto-price">$${producto.precio.toFixed(2)}</p>
+                        <button class="btn-agregar" onclick="agregarAlCarrito(${producto.id})">
+                            <i class="bi bi-bag-plus"></i> Agregar
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            
+            primeraSección = false;
+        }
+    });
+
+        // Forzar repaint y animar entrada en cascada
+        requestAnimationFrame(() => {
+            grid.classList.remove('fade-out');
+            grid.classList.add('fade-in');
+
+            const cards = grid.querySelectorAll('.producto-card');
+            cards.forEach((card, i) => {
+                card.classList.remove('show');
+                // Aplicar un delay solo para la animación de entrada (stagger)
+                card.style.transitionDelay = (i * 60) + 'ms';
+
+                // small timeout to allow the browser to apply the delay y añadir la clase
+                setTimeout(() => {
+                    card.classList.add('show');
+
+                    // Después de que termine la animación de entrada, eliminar el transition-delay
+                    // para que las transiciones de hover respondan de forma inmediata y consistente.
+                    setTimeout(() => {
+                        try {
+                            card.style.removeProperty('transition-delay');
+                        } catch (e) {
+                            // fallback: poner a 0ms si removeProperty no está disponible
+                            card.style.transitionDelay = '0ms';
+                        }
+                    }, 360); // 360ms > duración de la transición (300ms) para asegurar que terminó
+                }, 20 + i * 60);
+            });
+        });
+    }, 280);
+}
+
+// FILTROS
+function inicializarFiltros() {
+    const filtros = document.querySelectorAll('.filter-btn');
+    filtros.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filtros.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtroActual = btn.dataset.filter;
+            
+            if (filtroActual === 'all') {
+                mostrarProductos(productos, 'all');
+            } else {
+                const filtrados = productos.filter(p => p.categoria === filtroActual);
+                mostrarProductos(filtrados, filtroActual);
+            }
+        });
+    });
+}
+
+// CARRITO FUNCIONALIDAD
+function agregarAlCarrito(productoId) {
+    const producto = productos.find(p => p.id === productoId);
+    const itemEnCarrito = cart.find(item => item.id === productoId);
+    
+    if (itemEnCarrito) {
+        itemEnCarrito.cantidad++;
+    } else {
+        cart.push({
+            ...producto,
+            cantidad: 1
+        });
+    }
+    
+    guardarCarrito();
+    actualizarCarritoUI();
+    mostrarNotificacion(`${producto.nombre} agregado al carrito`);
+}
+
+function quitarDelCarrito(productoId) {
+    cart = cart.filter(item => item.id !== productoId);
+    guardarCarrito();
+    actualizarCarritoUI();
+}
+
+function actualizarCantidad(productoId, cantidad) {
+    const item = cart.find(item => item.id === productoId);
+    if (item) {
+        item.cantidad = Math.max(1, cantidad);
+        guardarCarrito();
+        actualizarCarritoUI();
+    }
+}
+
+function guardarCarrito() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function actualizarCarritoUI() {
+    const cartCount = document.getElementById('cartCount');
+    const totalItems = cart.reduce((sum, item) => sum + item.cantidad, 0);
+    cartCount.textContent = totalItems;
+    
+    const cartItemsContainer = document.getElementById('cartItems');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+            <div class="empty-cart">
+                <i class="bi bi-cart4"></i>
+                <p>Tu carrito está vacío</p>
+            </div>
+        `;
+        // Deshabilitar botón de checkout
+        if (checkoutBtn) {
+            checkoutBtn.disabled = true;
+            checkoutBtn.style.opacity = '0.5';
+            checkoutBtn.style.cursor = 'not-allowed';
+        }
+    } else {
+        cartItemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <img src="${item.imagen}" alt="${item.nombre}" class="cart-item-image">
+                <div class="cart-item-info">
+                    <div class="cart-item-name">${item.nombre}</div>
+                    <div class="cart-item-price">$${item.precio.toFixed(2)}</div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn" onclick="actualizarCantidad(${item.id}, ${item.cantidad - 1})">−</button>
+                        <span>${item.cantidad}</span>
+                        <button class="quantity-btn" onclick="actualizarCantidad(${item.id}, ${item.cantidad + 1})">+</button>
+                    </div>
+                </div>
+                <button class="remove-item" onclick="quitarDelCarrito(${item.id})" aria-label="Eliminar ${item.nombre}">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        `).join('');
+        // Habilitar botón de checkout
+        if (checkoutBtn) {
+            checkoutBtn.disabled = false;
+            checkoutBtn.style.opacity = '1';
+            checkoutBtn.style.cursor = 'pointer';
+        }
+    }
+    
+    actualizarTotal();
+}
+
+function actualizarTotal() {
+    const subtotal = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+    const impuestos = subtotal * 0.1; // 10% de impuestos
+    const total = subtotal + impuestos;
+    
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('taxes').textContent = `$${impuestos.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+}
+
+function formatCurrency(value) {
+    return `$${value.toFixed(2)}`;
+}
+
+// CARRITO MODAL
+document.getElementById('cartIcon').addEventListener('click', openCart);
+
+function openCart() {
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartOverlay');
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+
+    // Evitar scroll del body mientras el carrito está abierto
+    try { document.body.classList.add('no-scroll'); } catch (e) {}
+}
+
+function closeCart() {
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartOverlay');
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+
+    // Restaurar scroll
+    try { document.body.classList.remove('no-scroll'); } catch (e) {}
+}
+
+document.addEventListener('click', (e) => {
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartOverlay');
+    if (e.target === overlay) {
+        closeCart();
+    }
+});
+
+// Cerrar carrito con la tecla ESC si está abierto
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        const sidebar = document.getElementById('cartSidebar');
+        if (sidebar && sidebar.classList.contains('active')) {
+            closeCart();
+        }
+    }
+});
+
+function checkout() {
+    if (cart.length === 0) {
+        mostrarNotificacion('Tu carrito está vacío');
+        return;
+    }
+
+    // Abrir modal de pedido (reemplaza prompts)
+    openOrderModal();
+}
+
+// --- Order modal (reemplaza prompts) ---
+function openOrderModal() {
+    const modal = document.getElementById('orderModal');
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'false');
+    try { document.body.classList.add('no-scroll'); } catch (e) {}
+    // focus primer campo
+    const input = document.getElementById('orderNombre');
+    if (input) input.focus();
+}
+
+function closeOrderModal() {
+    const modal = document.getElementById('orderModal');
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    try { document.body.classList.remove('no-scroll'); } catch (e) {}
+}
+
+// Manejar envío desde el modal
+document.addEventListener('DOMContentLoaded', () => {
+    const orderForm = document.getElementById('orderForm');
+    if (!orderForm) return;
+    orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('orderNombre').value.trim();
+        const telefono = document.getElementById('orderTelefono').value.trim();
+        const direccion = document.getElementById('orderDireccion').value.trim();
+        const nota = document.getElementById('orderNota').value.trim();
+
+        if (!nombre || !telefono) {
+            alert('Por favor completa el nombre y teléfono.');
+            return;
+        }
+
+        // Build order data and send
+        const subtotal = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+        const impuestos = subtotal * 0.1;
+        const total = subtotal + impuestos;
+
+        const lineas = cart.map(item => `${item.cantidad} x ${item.nombre} - ${formatCurrency(item.precio)} (cada uno)`);
+
+        let mensaje = `*Nuevo pedido desde EMPA-MARKET*\n\n`;
+        mensaje += `*Nombre:* ${nombre}\n`;
+        mensaje += `*Teléfono:* ${telefono}\n`;
+        if (direccion) mensaje += `*Dirección:* ${direccion}\n`;
+        if (nota) mensaje += `*Nota:* ${nota}\n`;
+        mensaje += `\n*Pedido:*\n${lineas.join('\n')}\n\n`;
+        mensaje += `Subtotal: ${formatCurrency(subtotal)}\n`;
+        mensaje += `Impuestos (10%): ${formatCurrency(impuestos)}\n`;
+        mensaje += `*Total: ${formatCurrency(total)}*\n`;
+
+        // Enviar a WhatsApp
+        const encoded = encodeURIComponent(mensaje);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+        try {
+            const a = document.createElement('a');
+            a.href = waUrl;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        } catch (err) {
+            try { window.open(waUrl, '_blank'); } catch (err2) { window.location.href = waUrl; }
+        }
+
+        mostrarNotificacion('Abriendo WhatsApp para completar el pedido...');
+
+        // Limpiar formulario
+        orderForm.reset();
+
+        // Limpiar y cerrar modal/carrito
+        cart = [];
+        guardarCarrito();
+        actualizarCarritoUI();
+        // Cerrar modal y carrito
+        closeOrderModal();
+        closeCart();
+    });
+});
+
+// Cerrar modal con Escape cuando está abierto
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        const modal = document.getElementById('orderModal');
+        if (modal && modal.getAttribute('aria-hidden') === 'false') {
+            closeOrderModal();
+        }
+    }
+});
+
+// Slider eliminado: la sección de promociones fue removida del HTML,
+// por lo que se han quitado las funciones y el temporizador asociados al slider.
+
+// FORMULARIO DE FRANQUICIA
+document.getElementById('franchiseForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+    
+    // Validaciones
+    if (!nombre || nombre.length < 3) {
+        mostrarNotificacion('Por favor ingresa un nombre válido (mínimo 3 caracteres)', 'error');
+        return;
+    }
+    
+    if (!email || !validarEmail(email)) {
+        mostrarNotificacion('Por favor ingresa un email válido', 'error');
+        return;
+    }
+    
+    if (!telefono || telefono.length < 7) {
+        mostrarNotificacion('Por favor ingresa un teléfono válido', 'error');
+        return;
+    }
+    
+    if (!mensaje || mensaje.length < 10) {
+        mostrarNotificacion('Por favor ingresa un mensaje válido (mínimo 10 caracteres)', 'error');
+        return;
+    }
+    
+    console.log('Solicitud de Franquicia:', {
+        nombre,
+        email,
+        telefono,
+        mensaje,
+        fecha: new Date().toLocaleDateString()
+    });
+    
+    mostrarNotificacion(`¡Gracias ${nombre}! Recibimos tu solicitud. Nos contactaremos pronto.`, 'success');
+    document.getElementById('franchiseForm').reset();
+});
+
+// Función validar email
+function validarEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+
+// NOTIFICACIONES - Contenedor para manejar el apilamiento
+let notificacionesContainer = null;
+
+function obtenerContenedorNotificaciones() {
+    if (!notificacionesContainer) {
+        notificacionesContainer = document.createElement('div');
+        notificacionesContainer.id = 'notificaciones-stack';
+        notificacionesContainer.style.cssText = `
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+        `;
+        
+        // Ajuste de top en móviles
+        if (window.innerWidth <= 768) {
+            notificacionesContainer.style.top = '100px';
+        }
+        
+        document.body.appendChild(notificacionesContainer);
+    }
+    return notificacionesContainer;
+}
+
+function mostrarNotificacion(mensaje, tipo = 'success') {
+    const contenedor = obtenerContenedorNotificaciones();
+    
+    const notificacion = document.createElement('div');
+    
+    // Estilos según tipo
+    let bgColor = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+    let iconClass = 'bi-check-circle-fill';
+    
+    if (tipo === 'error') {
+        bgColor = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+        iconClass = 'bi-exclamation-circle-fill';
+    } else if (tipo === 'info') {
+        bgColor = 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)';
+        iconClass = 'bi-info-circle-fill';
+    }
+    
+    notificacion.style.cssText = `
+        background: ${bgColor};
+        color: white;
+        padding: 16px 24px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        animation: slideIn 0.3s ease-out;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(4px);
+        max-width: 320px;
+        word-wrap: break-word;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        pointer-events: auto;
+        transition: transform 0.3s ease;
+    `;
+    
+    // Crear contenido con ícono
+    const icono = document.createElement('i');
+    icono.className = `bi ${iconClass}`;
+    icono.style.cssText = `
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    `;
+    
+    const texto = document.createElement('span');
+    texto.textContent = mensaje;
+    
+    notificacion.appendChild(icono);
+    notificacion.appendChild(texto);
+    
+    // Agregar al inicio del contenedor (arriba)
+    contenedor.insertBefore(notificacion, contenedor.firstChild);
+    
+    // Animar las notificaciones existentes hacia abajo
+    const notificaciones = contenedor.querySelectorAll('div');
+    notificaciones.forEach((notif, index) => {
+        if (index > 0) {
+            notif.style.transform = `translateY(${index * 12}px)`;
+        }
+    });
+    
+    setTimeout(() => {
+        notificacion.style.animation = 'slideOut 0.3s ease-out forwards';
+        setTimeout(() => {
+            notificacion.remove();
+            
+            // Reorganizar las notificaciones restantes
+            const notificacionesRestantes = contenedor.querySelectorAll('div');
+            notificacionesRestantes.forEach((notif, index) => {
+                notif.style.transform = `translateY(${index * 12}px)`;
+            });
+            
+            // Limpiar el contenedor si está vacío
+            if (notificacionesRestantes.length === 0 && notificacionesContainer) {
+                notificacionesContainer.remove();
+                notificacionesContainer = null;
+            }
+        }, 300);
+    }, 3000);
+}
+
+// ANIMACIONES
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// SCROLL EFFECT PARA ELEMENTOS
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observar elementos cuando se cargan
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.producto-card, .instagram-item, .info-item, .about-text, .about-image').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.5s ease-out';
+        observer.observe(el);
+    });
+});
+
+// BACK TO TOP - botón flotante: inicializar después de que cargue el DOM
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+
+    const toggleBackToTop = () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    };
+
+    // Inicial check
+    toggleBackToTop();
+
+    window.addEventListener('scroll', toggleBackToTop);
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+// FAQ - PREGUNTAS FRECUENTES
+function inicializarFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                // Cerrar otros items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle actual
+                item.classList.toggle('active');
+            });
+        }
+    });
+}
+
+// MODALES DE POLÍTICAS
+function mostrarModal(tipo) {
+    let modalId = tipo + 'Modal';
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.setAttribute('aria-hidden', 'false');
+        try { document.body.classList.add('no-scroll'); } catch (e) {}
+    }
+}
+
+function cerrarModal(tipo) {
+    let modalId = tipo + 'Modal';
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.setAttribute('aria-hidden', 'true');
+        try { document.body.classList.remove('no-scroll'); } catch (e) {}
+    }
+}
+
+// Cerrar modales con Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        ['terminos', 'privacidad', 'cookies'].forEach(tipo => {
+            const modal = document.getElementById(tipo + 'Modal');
+            if (modal && modal.getAttribute('aria-hidden') === 'false') {
+                cerrarModal(tipo);
+            }
+        });
+    }
+});
+
+// Cerrar modales al hacer click en el backdrop
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('policy-modal-backdrop')) {
+        ['terminos', 'privacidad', 'cookies'].forEach(tipo => {
+            const modal = document.getElementById(tipo + 'Modal');
+            if (modal && modal.getAttribute('aria-hidden') === 'false') {
+                cerrarModal(tipo);
+            }
+        });
+    }
+});
+
+
