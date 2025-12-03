@@ -6,7 +6,7 @@ const productos = [
         nombre: 'Carne Molida',
         categoria: 'empanadas',
         seccion: 'Empanadas',
-        precio: 4.5,
+        precio: 1000,
         descripcion: 'Carne picada con cebolla y especias',
         imagen: 'assets/Empanada 1.png',
         stock: 25,
@@ -19,7 +19,7 @@ const productos = [
         nombre: 'Pollo BBQ',
         categoria: 'empanadas',
         seccion: 'Empanadas',
-        precio: 5,
+        precio: 1000,
         descripcion: 'Pollo desmenuzado con salsa BBQ casera',
         imagen: 'assets/Empanada 2.png',
         stock: 18,
@@ -32,7 +32,7 @@ const productos = [
         nombre: 'Queso y Jamón',
         categoria: 'empanadas',
         seccion: 'Empanadas',
-        precio: 5.5,
+        precio: 1000,
         descripcion: 'Queso fundido con jamón premium',
         imagen: 'assets/Empanada 3.png',
         stock: 22,
@@ -45,7 +45,7 @@ const productos = [
         nombre: 'Espinaca y Queso',
         categoria: 'empanadas',
         seccion: 'Empanadas',
-        precio: 5,
+        precio: 1000,
         descripcion: 'Espinaca fresca con queso ricotta',
         imagen: 'assets/Empanada 4.png',
         stock: 30,
@@ -58,7 +58,7 @@ const productos = [
         nombre: 'Atún Fresco',
         categoria: 'empanadas',
         seccion: 'Empanadas',
-        precio: 6,
+        precio: 1200,
         descripcion: 'Atún con ají y vegetales frescos',
         imagen: 'assets/Empanada 5.png',
         stock: 15,
@@ -71,7 +71,7 @@ const productos = [
         nombre: 'Corned Beef',
         categoria: 'empanadas',
         seccion: 'Empanadas',
-        precio: 5.5,
+        precio: 1200,
         descripcion: 'Corned beef tierno con cebolla',
         imagen: 'assets/Empanada 6.png',
         stock: 20,
@@ -85,7 +85,7 @@ const productos = [
         nombre: 'Medialunas Saladas',
         categoria: 'delicias',
         seccion: 'Delicias',
-        precio: 3.5,
+        precio: 750,
         descripcion: 'Medialunas saladas crujientes y doradas',
         imagen: 'assets/medialunas saladas.jpeg',
         stock: 40,
@@ -98,7 +98,7 @@ const productos = [
         nombre: 'Medialunas Dulces',
         categoria: 'delicias',
         seccion: 'Delicias',
-        precio: 3.5,
+        precio: 750,
         descripcion: 'Medialunas dulces con azúcar brillante',
         imagen: 'assets/medialunas.jpg',
         stock: 35,
@@ -111,8 +111,8 @@ const productos = [
         nombre: 'Chipá',
         categoria: 'delicias',
         seccion: 'Delicias',
-        precio: 2.5,
-        descripcion: 'Chipá tradicional hecho con queso y almidón',
+        precio: 2400,
+        descripcion: '5 Chipá tradicional hecho con queso y almidón',
         imagen: 'assets/chipa.webp',
         stock: 50,
         puntuacion: 4.6,
@@ -124,7 +124,7 @@ const productos = [
         nombre: 'Pastelitos',
         categoria: 'delicias',
         seccion: 'Delicias',
-        precio: 3,
+        precio: 1150,
         descripcion: 'Pastelitos rellenos de dulce de leche',
         imagen: 'assets/pastelitos.webp ',
         stock: 32,
@@ -138,7 +138,7 @@ const productos = [
         nombre: 'Pizza Margarita',
         categoria: 'pizzas',
         seccion: 'Pizzas',
-        precio: 10,
+        precio: 8000,
         descripcion: 'Clásica pizza con tomate, mozzarella y albahaca',
         imagen: 'assets/pizza 1.jpg',
         stock: 16,
@@ -151,7 +151,7 @@ const productos = [
         nombre: 'Pizza Pepperoni',
         categoria: 'pizzas',
         seccion: 'Pizzas',
-        precio: 11,
+        precio: 8000,
         descripcion: 'Pepperoni fresco con queso derretido',
         imagen: 'assets/pizza 2.jpg',
         stock: 12,
@@ -164,7 +164,7 @@ const productos = [
         nombre: 'Pizza Cuatro Quesos',
         categoria: 'pizzas',
         seccion: 'Pizzas',
-        precio: 12,
+        precio: 9500,
         descripcion: 'Combinación de 4 quesos premium',
         imagen: 'assets/pizza 3.jpg',
         stock: 10,
@@ -178,7 +178,7 @@ const productos = [
         nombre: 'Coca-cola 500ml',
         categoria: 'bebidas',
         seccion: 'Bebidas',
-        precio: 2.5,
+        precio: 1900,
         descripcion: 'Coca-cola clásica 500ml',
         imagen: 'assets/coca.jpg',
         stock: 100,
@@ -191,7 +191,7 @@ const productos = [
         nombre: 'Placer 500ml',
         categoria: 'bebidas',
         seccion: 'Bebidas',
-        precio: 2,
+        precio: 1900,
         descripcion: 'Placer sabor a mandarina 500ml',
         imagen: 'assets/placer.jpg',
         stock: 85,
@@ -204,7 +204,7 @@ const productos = [
         nombre: 'Cepita',
         categoria: 'bebidas',
         seccion: 'Bebidas',
-        precio: 2.75,
+        precio: 2700,
         descripcion: 'Cepita jugo natural en botella',
         imagen: 'assets/cepita.jpg',
         stock: 70,
@@ -217,7 +217,7 @@ const productos = [
         nombre: 'Sprite',
         categoria: 'bebidas',
         seccion: 'Bebidas',
-        precio: 2.5,
+        precio: 1900,
         descripcion: 'Sprite limón fresco 500ml',
         imagen: 'assets/sprite.jpg',
         stock: 95,
@@ -230,7 +230,7 @@ const productos = [
         nombre: 'Pepsi',
         categoria: 'bebidas',
         seccion: 'Bebidas',
-        precio: 2.5,
+        precio: 1900,
         descripcion: 'Pepsi cola 500ml',
         imagen: 'assets/pepsi.jpg',
         stock: 80,
@@ -243,7 +243,7 @@ const productos = [
         nombre: 'Manaos',
         categoria: 'bebidas',
         seccion: 'Bebidas',
-        precio: 1.75,
+        precio: 1300,
         descripcion: 'Manaos sabores variados 1l',
         imagen: 'assets/manaos.jpg',
         stock: 120,
@@ -271,39 +271,39 @@ const HORARIOS = {
 };
 
 // FUNCIÓN: Inicializar tema (detectar preferencia del sistema y del usuario)
-function inicializarTema() {
-    const temaGuardado = localStorage.getItem('tema');
-    const preferenciaDelSistema = window.matchMedia('(prefers-color-scheme: dark)').matches;
+ function inicializarTema() {
+     const temaGuardado = localStorage.getItem('tema');
+     const preferenciaDelSistema = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    let debeSerTemaClaro = false;
+     let debeSerTemaClaro = false;
     
-    if (temaGuardado) {
-        // Si el usuario tiene una preferencia guardada, usarla
-        debeSerTemaClaro = temaGuardado === 'light';
-    } else {
-        // Si no, usar la preferencia del sistema (invertida: light si el sistema es light)
-        debeSerTemaClaro = !preferenciaDelSistema;
-    }
+     if (temaGuardado) {
+         // Si el usuario tiene una preferencia guardada, usarla
+         debeSerTemaClaro = temaGuardado === 'light';
+     } else {
+         // Si no, usar la preferencia del sistema (invertida: light si el sistema es light)
+         debeSerTemaClaro = !preferenciaDelSistema;
+     }
     
-    aplicarTema(debeSerTemaClaro, false);
-    actualizarIconoTema(debeSerTemaClaro);
+     aplicarTema(debeSerTemaClaro, false);
+     actualizarIconoTema(debeSerTemaClaro);
     
-    // Escuchar cambios en la preferencia del sistema
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('tema')) {
-            const esOscuro = e.matches;
-            aplicarTema(!esOscuro);
-            actualizarIconoTema(!esOscuro);
-        }
-    });
+     // Escuchar cambios en la preferencia del sistema
+     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+         if (!localStorage.getItem('tema')) {
+             const esOscuro = e.matches;
+             aplicarTema(!esOscuro);
+             actualizarIconoTema(!esOscuro);
+         }
+     });
     
-    // Escuchar clicks en el botón de tema
-    // Enlazar todos los toggles de tema (desktop/mobile). Después de la limpieza
-    // dejamos solo el del panel lateral; esto asegura que si hay varios, se manejen.
-    const themeToggles = document.querySelectorAll('#themeToggle, #themeToggleMobile');
-    themeToggles.forEach(t => {
-        if (t) t.addEventListener('click', alternarTema);
-    });
+     // Escuchar clicks en el botón de tema
+     // Enlazar todos los toggles de tema (desktop/mobile). Después de la limpieza
+     // dejamos solo el del panel lateral; esto asegura que si hay varios, se manejen.
+     const themeToggles = document.querySelectorAll('#themeToggle, #themeToggleMobile');
+     themeToggles.forEach(t => {
+         if (t) t.addEventListener('click', alternarTema);
+     });
 
     // Pre-cargar imágenes críticas (hero) para reducir el retardo al cambiar tema
     precargarImagenesHero();
@@ -1079,6 +1079,14 @@ function closeOrderModal() {
     try { document.body.classList.remove('no-scroll'); } catch (e) {}
 }
 
+// Función para validar teléfono (mínimo 10 dígitos)
+function validarTelefono(telefono) {
+    // Extraer solo dígitos del teléfono
+    const soloDigitos = telefono.replace(/\D/g, '');
+    // Debe tener al menos 10 dígitos
+    return soloDigitos.length >= 10;
+}
+
 // Manejar envío desde el modal
 document.addEventListener('DOMContentLoaded', () => {
     const orderForm = document.getElementById('orderForm');
@@ -1090,8 +1098,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const direccion = document.getElementById('orderDireccion').value.trim();
         const nota = document.getElementById('orderNota').value.trim();
 
-        if (!nombre || !telefono) {
-            alert('Por favor completa el nombre y teléfono.');
+        // Validaciones
+        if (!nombre || nombre.length < 3) {
+            mostrarNotificacion('Por favor ingresa un nombre válido (mínimo 3 caracteres)', 'error');
+            return;
+        }
+
+        if (!telefono) {
+            mostrarNotificacion('Por favor ingresa tu teléfono', 'error');
+            return;
+        }
+
+        if (!validarTelefono(telefono)) {
+            mostrarNotificacion('Por favor ingresa un teléfono válido (mínimo 10 dígitos)', 'error');
+            return;
+        }
+
+        if (!direccion || direccion.length < 5) {
+            mostrarNotificacion('Por favor ingresa una dirección válida', 'error');
             return;
         }
 
@@ -1105,7 +1129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let mensaje = `*Nuevo pedido desde EMPA-MARKET*\n\n`;
         mensaje += `*Nombre:* ${nombre}\n`;
         mensaje += `*Teléfono:* ${telefono}\n`;
-        if (direccion) mensaje += `*Dirección:* ${direccion}\n`;
+        mensaje += `*Dirección:* ${direccion}\n`;
         if (nota) mensaje += `*Nota:* ${nota}\n`;
         mensaje += `\n*Pedido:*\n${lineas.join('\n')}\n\n`;
         mensaje += `Subtotal: ${formatCurrency(subtotal)}\n`;
@@ -1261,7 +1285,6 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
         animation: slideIn 0.3s ease-out;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(4px);
         max-width: 320px;
         word-wrap: break-word;
         display: flex;
