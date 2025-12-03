@@ -591,6 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarProductos();
     actualizarCarritoUI();
     inicializarFiltros();
+    inicializarHoverMobile();
     agregarParallax();
     inicializarMenuHamburguesa();
     inicializarFAQ();
@@ -872,6 +873,38 @@ function inicializarFiltros() {
                 mostrarProductos(filtrados, filtroActual);
             }
         });
+    });
+}
+
+// HOVER EN MOBILE - Mantener estado hover al tocar
+function inicializarHoverMobile() {
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+    
+    const productCards = document.querySelectorAll('.producto-card');
+    let hoveringCard = null;
+    
+    productCards.forEach(card => {
+        card.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            
+            // Remover hover de la tarjeta anterior
+            if (hoveringCard && hoveringCard !== card) {
+                hoveringCard.classList.remove('hover-active');
+            }
+            
+            // Agregar hover a la tarjeta actual
+            card.classList.add('hover-active');
+            hoveringCard = card;
+        });
+    });
+    
+    // Remover hover cuando se toca otra parte de la pantalla
+    document.addEventListener('touchstart', (e) => {
+        if (!e.target.closest('.producto-card') && hoveringCard) {
+            hoveringCard.classList.remove('hover-active');
+            hoveringCard = null;
+        }
     });
 }
 

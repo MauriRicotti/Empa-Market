@@ -1038,6 +1038,21 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
 }
 
+.producto-card.hover-active,
+.producto-card.hover-active:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 40px rgba(74, 222, 128, 0.2);
+}
+
+.producto-card.hover-active .producto-image {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.producto-card.hover-active .producto-overlay {
+    opacity: 1;
+}
+
 .producto-badge {
     position: absolute;
     top: 12px;
@@ -1128,6 +1143,30 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text);
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+/* TRANSICIONES SUAVES EN MOBILE */
+@media (max-width: 768px) {
+    .producto-card,
+    .producto-image,
+    .producto-overlay {
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+    
+    /* Mantener el efecto hover activo en mobile */
+    .producto-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 15px 40px rgba(74, 222, 128, 0.2);
+    }
+    
+    .producto-card:hover .producto-image {
+        transform: scale(1.1) rotate(1deg);
+    }
+    
+    .producto-card:hover .producto-overlay {
+        opacity: 1;
+    }
 }
 
 /* ABOUT / SOBRE NOSOTROS */
@@ -2278,7 +2317,7 @@ h1, h2, h3, h4, h5, h6 {
     .modal-panel { 
         margin: 0;
         width: 100%;
-        max-height: 95vh;
+        max-height: 80vh;
         max-width: 100%;
         padding: 1.25rem;
     }
