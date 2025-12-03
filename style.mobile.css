@@ -1,0 +1,85 @@
+/* Mobile performance tweaks for EmpaMarket
+   - Elimina efectos de blur/backdrop-filter
+   - Reduce/quita sombras y animaciones costosas
+   - Activa respetos a prefers-reduced-motion
+   Carga esta hoja con media="(max-width:768px)" para aplicarlo sólo en móviles.
+*/
+
+@media (max-width: 768px) {
+  /* Desactivar filtros pesados */
+  * {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+    /* Eliminar sombras y sombras de texto que generan repaints */
+    box-shadow: none !important;
+    text-shadow: none !important;
+    /* Evitar transiciones y animaciones que consumen CPU/GPU */
+    transition: none !important;
+    animation: none !important;
+    /* Restaurar will-change para evitar hints costosos */
+    will-change: auto !important;
+  }
+
+  /* Permitir transición suave para las imágenes del hero en móviles */
+  #hero-img {
+    transition: opacity 2s ease-in-out !important;
+  }
+
+  /* Ajustes específicos para mejorar la experiencia móvil */
+  .hero {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    border-radius: 0 0 20px 20px !important;
+  }
+
+  .hero-background {
+    background-attachment: scroll !important;
+    transform: none !important;
+  }
+
+  .nav-links.mobile {
+    width: 90% !important;
+    max-width: 100% !important;
+  }
+
+  .cart-sidebar {
+    width: 100% !important;
+    right: -100% !important;
+  }
+
+  .instagram-item:hover,
+  .instagram-card:hover,
+  .producto-card:hover,
+  .faq-item:hover,
+  .testimonios-card:hover,
+  .cart-icon:hover,
+  .close-menu:hover,
+  .btn-primary:hover {
+    transform: none !important;
+  }
+
+  .back-to-top,
+  .whatsapp-widget {
+    display: none !important;
+  }
+
+  /* Mejora de scroll en iOS */
+  .cart-items {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reducir la carga de imágenes de fondo (si se quiere aplicar más adelante) */
+  .hero-background,
+  .instagram-media {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

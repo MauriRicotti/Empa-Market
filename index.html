@@ -14,15 +14,18 @@
     <meta name="theme-color" content="#10b981">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.mobile.css" media="(max-width:768px)">
+    <!-- Leaflet CSS for interactive maps -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container navbar-container">
             <div class="logo">
-                <i class="bi bi-egg-fried" aria-hidden="true"></i>
+                <img src="assets/favicon.png" alt="EmpaMarket" class="navbar-logo" />
                 <span>EMPA-MARKET</span>
             </div>
             <!-- Botón hamburguesa visible en móviles -->
@@ -44,6 +47,11 @@
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#instagram">Instagram</a></li>
                 <li><a href="#contacto">Contacto</a></li>
+                <li class="mobile-only">
+                    <button id="changeSucursalMobile" aria-label="Cambiar sucursal">
+                        <i class="bi bi-shop"></i> <span id="sucursalNameMobile">Sucursal</span>
+                    </button>
+                </li>
             </ul>
             <div class="navbar-right">
                 <!-- Botón de tema de escritorio comentado a petición del usuario
@@ -51,6 +59,12 @@
                     <i class="bi bi-moon-fill"></i>
                 </button>
                 -->
+                <div class="sucursal-display" id="sucursalDisplay" style="display: none;">
+                    <button class="btn" id="changeSucursal" aria-label="Cambiar sucursal">
+                        <i class="bi bi-shop"></i>
+                        <span id="sucursalName">Sucursal</span>
+                    </button>
+                </div>
                 <div class="cart-icon" id="cartIcon">
                     <i class="bi bi-cart3" aria-hidden="true"></i>
                     <span class="cart-label">Carrito</span>
@@ -62,15 +76,23 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
-        <div class="hero-background" id="heroBackground"></div>
+        <img id="hero-img" src="assets/Hero section.jpg" alt="EmpaMarket - Empanadas Artesanales">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h2 class="hero-brand">EMPA-MARKET</h2>
-            <p class="hero-subtitle">Nuestras Delicias</p>
             <div class="hero-status" id="heroStatus">
                 <span class="status-indicator open"></span>
                 <span class="status-text">Abierto - Tomando pedidos</span>
+                <div class="status-tooltip">
+                    <div class="tooltip-header">Horarios de Atención</div>
+                    <div class="tooltip-content">
+                        <p><strong>Lunes a Viernes:</strong> 10:00 - 21:00</p>
+                        <p><strong>Sábado:</strong> 11:00 - 22:00</p>
+                        <p><strong>Domingo:</strong> 11:00 - 21:00</p>
+                    </div>
+                </div>
             </div>
+            <h2 class="hero-brand">EMPA-MARKET</h2>
+            <p class="hero-subtitle">Nuestras Delicias</p>
             <div class="hero-buttons">
                 <button class="btn btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
                     <i class="bi bi-bag-plus"></i> Hacer Pedido
@@ -81,6 +103,23 @@
             </div>
         </div>
     </section>
+
+    <!-- MAPA EN SOBRE NOSOTROS -->
+        <!-- Modal de selección de Sucursal (se muestra en la primera visita) -->
+        <div id="sucursalModal" class="modal" aria-hidden="true">
+            <div class="modal-backdrop" tabindex="-1"></div>
+            <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="sucursalTitle">
+                <button class="modal-close" aria-label="Cerrar selección">×</button>
+                <h2 id="sucursalTitle">Seleccioná tu sucursal</h2>
+                <p style="color:var(--gray)">Elegí la sucursal desde la cual querés hacer tu pedido. Podés cambiarla después en el pie de página.</p>
+                <div id="sucursalList" class="sucursal-list">
+                    <!-- Items generados por JS -->
+                </div>
+                <div style="margin-top:1rem; text-align:right;">
+                    <button id="sucursalSkip" class="btn">Ver sitio sin elegir</button>
+                </div>
+            </div>
+        </div>
 
     <!-- Promociones removed -->
     <!-- SECCIÓN DE PRODUCTOS -->
@@ -114,6 +153,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- SECCIÓN SOBRE NOSOTROS -->
     <section class="about" id="about">
@@ -469,10 +510,8 @@
                         </div>
                     </div>
                     
-                    <!-- MAPA INTERACTIVO -->
-                    <div class="mapa" id="mapa">
-                        <iframe src="https://www.google.com/maps?q=Monteagudo+Bernardo+3394,+B1888+Florencio+Varela,+Provincia+de+Buenos+Aires&output=embed" width="100%" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    <!-- MAPA INTERACTIVO (Leaflet) -->
+                    <div class="mapa" id="map-contact" aria-label="Mapa de sucursales - Contacto"></div>
                 </div>
             </div>
         </div>
@@ -488,7 +527,7 @@
                     <div class="footer-socials">
                         <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                         <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="https://wa.me/541141948773" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" data-role="whatsapp-link" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -560,6 +599,8 @@
 
     <!-- WIDGET FLOTANTE WHATSAPP REMOVIDO -->
 
+    <!-- Leaflet JS for interactive maps -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="main.js"></script>
     <!-- MODALES DE POLÍTICAS -->
     <div id="terminosModal" class="policy-modal" aria-hidden="true">

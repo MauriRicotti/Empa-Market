@@ -8,7 +8,11 @@ const productos = [
         seccion: 'Empanadas',
         precio: 4.5,
         descripcion: 'Carne picada con cebolla y especias',
-        imagen: 'assets/Empanada 1.png'
+        imagen: 'assets/Empanada 1.png',
+        stock: 25,
+        puntuacion: 4.8,
+        resenas: 124,
+        badge: 'Favorito'
     },
     {
         id: 2,
@@ -17,7 +21,11 @@ const productos = [
         seccion: 'Empanadas',
         precio: 5,
         descripcion: 'Pollo desmenuzado con salsa BBQ casera',
-        imagen: 'assets/Empanada 2.png'
+        imagen: 'assets/Empanada 2.png',
+        stock: 18,
+        puntuacion: 4.9,
+        resenas: 156,
+        badge: 'Top Seller'
     },
     {
         id: 3,
@@ -26,7 +34,11 @@ const productos = [
         seccion: 'Empanadas',
         precio: 5.5,
         descripcion: 'Queso fundido con jamón premium',
-        imagen: 'assets/Empanada 3.png'
+        imagen: 'assets/Empanada 3.png',
+        stock: 22,
+        puntuacion: 4.7,
+        resenas: 98,
+        badge: null
     },
     {
         id: 4,
@@ -35,7 +47,11 @@ const productos = [
         seccion: 'Empanadas',
         precio: 5,
         descripcion: 'Espinaca fresca con queso ricotta',
-        imagen: 'assets/Empanada 4.png'
+        imagen: 'assets/Empanada 4.png',
+        stock: 30,
+        puntuacion: 4.6,
+        resenas: 87,
+        badge: 'Vegana'
     },
     {
         id: 5,
@@ -44,7 +60,11 @@ const productos = [
         seccion: 'Empanadas',
         precio: 6,
         descripcion: 'Atún con ají y vegetales frescos',
-        imagen: 'assets/Empanada 5.png'
+        imagen: 'assets/Empanada 5.png',
+        stock: 15,
+        puntuacion: 4.5,
+        resenas: 72,
+        badge: 'Premium'
     },
     {
         id: 6,
@@ -53,7 +73,11 @@ const productos = [
         seccion: 'Empanadas',
         precio: 5.5,
         descripcion: 'Corned beef tierno con cebolla',
-        imagen: 'assets/Empanada 6.png'
+        imagen: 'assets/Empanada 6.png',
+        stock: 20,
+        puntuacion: 4.7,
+        resenas: 105,
+        badge: null
     },
     // DELICIAS
     {
@@ -63,7 +87,11 @@ const productos = [
         seccion: 'Delicias',
         precio: 3.5,
         descripcion: 'Medialunas saladas crujientes y doradas',
-        imagen: 'assets/medialunas saladas.jpeg'
+        imagen: 'assets/medialunas saladas.jpeg',
+        stock: 40,
+        puntuacion: 4.8,
+        resenas: 110,
+        badge: 'Favorito'
     },
     {
         id: 8,
@@ -72,7 +100,11 @@ const productos = [
         seccion: 'Delicias',
         precio: 3.5,
         descripcion: 'Medialunas dulces con azúcar brillante',
-        imagen: 'assets/medialunas.jpg'
+        imagen: 'assets/medialunas.jpg',
+        stock: 35,
+        puntuacion: 4.7,
+        resenas: 95,
+        badge: null
     },
     {
         id: 9,
@@ -81,7 +113,11 @@ const productos = [
         seccion: 'Delicias',
         precio: 2.5,
         descripcion: 'Chipá tradicional hecho con queso y almidón',
-        imagen: 'assets/chipa.webp'
+        imagen: 'assets/chipa.webp',
+        stock: 50,
+        puntuacion: 4.6,
+        resenas: 78,
+        badge: null
     },
     {
         id: 10,
@@ -90,7 +126,11 @@ const productos = [
         seccion: 'Delicias',
         precio: 3,
         descripcion: 'Pastelitos rellenos de dulce de leche',
-        imagen: 'assets/pastelitos.webp '
+        imagen: 'assets/pastelitos.webp ',
+        stock: 32,
+        puntuacion: 4.9,
+        resenas: 142,
+        badge: 'Top Seller'
     },
     // PIZZAS
     {
@@ -100,7 +140,11 @@ const productos = [
         seccion: 'Pizzas',
         precio: 10,
         descripcion: 'Clásica pizza con tomate, mozzarella y albahaca',
-        imagen: 'assets/pizza 1.jpg'
+        imagen: 'assets/pizza 1.jpg',
+        stock: 16,
+        puntuacion: 4.7,
+        resenas: 89,
+        badge: 'Vegana'
     },
     {
         id: 12,
@@ -109,7 +153,11 @@ const productos = [
         seccion: 'Pizzas',
         precio: 11,
         descripcion: 'Pepperoni fresco con queso derretido',
-        imagen: 'assets/pizza 2.jpg'
+        imagen: 'assets/pizza 2.jpg',
+        stock: 12,
+        puntuacion: 4.8,
+        resenas: 134,
+        badge: 'Top Seller'
     },
     {
         id: 13,
@@ -118,7 +166,11 @@ const productos = [
         seccion: 'Pizzas',
         precio: 12,
         descripcion: 'Combinación de 4 quesos premium',
-        imagen: 'assets/pizza 3.jpg'
+        imagen: 'assets/pizza 3.jpg',
+        stock: 10,
+        puntuacion: 4.9,
+        resenas: 167,
+        badge: 'Premium'
     },
     // BEBIDAS
     {
@@ -128,7 +180,11 @@ const productos = [
         seccion: 'Bebidas',
         precio: 2.5,
         descripcion: 'Coca-cola clásica 500ml',
-        imagen: 'assets/coca.jpg'
+        imagen: 'assets/coca.jpg',
+        stock: 100,
+        puntuacion: 4.5,
+        resenas: 201,
+        badge: null
     },
     {
         id: 15,
@@ -137,7 +193,11 @@ const productos = [
         seccion: 'Bebidas',
         precio: 2,
         descripcion: 'Placer sabor a mandarina 500ml',
-        imagen: 'assets/placer.jpg'
+        imagen: 'assets/placer.jpg',
+        stock: 85,
+        puntuacion: 4.4,
+        resenas: 65,
+        badge: null
     },
     {
         id: 16,
@@ -146,7 +206,11 @@ const productos = [
         seccion: 'Bebidas',
         precio: 2.75,
         descripcion: 'Cepita jugo natural en botella',
-        imagen: 'assets/cepita.jpg'
+        imagen: 'assets/cepita.jpg',
+        stock: 70,
+        puntuacion: 4.6,
+        resenas: 88,
+        badge: 'Premium'
     },
     {
         id: 17,
@@ -155,7 +219,11 @@ const productos = [
         seccion: 'Bebidas',
         precio: 2.5,
         descripcion: 'Sprite limón fresco 500ml',
-        imagen: 'assets/sprite.jpg'
+        imagen: 'assets/sprite.jpg',
+        stock: 95,
+        puntuacion: 4.5,
+        resenas: 112,
+        badge: null
     },
     {
         id: 18,
@@ -164,7 +232,11 @@ const productos = [
         seccion: 'Bebidas',
         precio: 2.5,
         descripcion: 'Pepsi cola 500ml',
-        imagen: 'assets/pepsi.jpg'
+        imagen: 'assets/pepsi.jpg',
+        stock: 80,
+        puntuacion: 4.4,
+        resenas: 76,
+        badge: null
     },
     {
         id: 19,
@@ -173,14 +245,17 @@ const productos = [
         seccion: 'Bebidas',
         precio: 1.75,
         descripcion: 'Manaos sabores variados 1l',
-        imagen: 'assets/manaos.jpg'
+        imagen: 'assets/manaos.jpg',
+        stock: 120,
+        puntuacion: 4.3,
+        resenas: 54,
+        badge: null
     }
 ];
 
 // CARRITO
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-// Número de WhatsApp del local (incluir código de país). Ajustar si es otro país.
-const WHATSAPP_NUMBER = '541141948773';
+// Nota: el número de WhatsApp ahora se obtiene según la sucursal seleccionada por el usuario.
 let currentSlide = 0;
 let filtroActual = 'all';
 
@@ -234,6 +309,43 @@ function inicializarTema() {
     precargarImagenesHero();
 }
 
+// Sucursales con números de WhatsApp. Cada sucursal tiene `id`, `nombre`, `direccion` y `whatsapp` (código país + número)
+const SUCURSALES = [
+    { id: 'varela', nombre: 'Florencio Varela', direccion: 'Monteagudo Bernardo 3394, B1888 Florencio Varela, Provincia de Buenos Aires', whatsapp: '5491141948773' },
+    { id: 'lomas_forougue', nombre: 'Lomas de Zamora - Forougue', direccion: 'Lomas de Zamora - Forougue 93', whatsapp: '549112345671' },
+    { id: 'monte_grande', nombre: 'Monte Grande', direccion: 'Monte Grande Angel C. Rotta 53', whatsapp: '549112345672' },
+    { id: 'banfield', nombre: 'Banfield', direccion: 'Banfield Maipu 95', whatsapp: '549112345673' },
+    { id: 'temperley', nombre: 'Temperley', direccion: 'Temperley Cangallo 177', whatsapp: '549112345674' },
+    { id: 'lanus_oeste', nombre: 'Lanús Oeste', direccion: 'Lanus Oeste - Hipoliro Yrigoyen 4500', whatsapp: '549112345675' },
+    { id: 'san_francisco_solano', nombre: 'San Francisco Solano', direccion: 'San Francisco Solano - Calle 844 2339', whatsapp: '549112345676' },
+    { id: 'burzaco', nombre: 'Burzaco', direccion: 'Burzaco - Pellegrini 872', whatsapp: '549112345677' },
+    { id: 'ezeiza', nombre: 'Ezeiza', direccion: 'Ezeiza - Nestor Kirchner 1632', whatsapp: '549112345678' },
+    { id: 'adrogue', nombre: 'Adrogué', direccion: 'Adrogué - Mitre 976', whatsapp: '549112345679' },
+    { id: 'lomas_boedo', nombre: 'Lomas de Zamora - Boedo', direccion: 'Lomas de Zamora - Boedo 449', whatsapp: '549112345680' },
+    { id: 'constitucion', nombre: 'Constitución', direccion: 'Constitucion - Salta 1749', whatsapp: '549112345681' }
+];
+
+function getSelectedSucursal() {
+    try {
+        const raw = localStorage.getItem('selectedSucursal');
+        return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function setSelectedSucursal(suc) {
+    localStorage.setItem('selectedSucursal', JSON.stringify(suc));
+}
+
+function getWhatsappNumberForUI() {
+    const sel = getSelectedSucursal();
+    if (sel && sel.whatsapp) return sel.whatsapp;
+    return SUCURSALES[0].whatsapp; // fallback
+}
+
+// (Se removió la inicialización de mapas; ya no se usan mapas interactivos)
+
 // Pre-cargar imágenes del hero para que el swap sea instantáneo
 function precargarImagenesHero() {
     const imgs = [
@@ -248,6 +360,127 @@ function precargarImagenesHero() {
         window.__preloadedHeroImages.push(img);
     });
 }
+
+/* ---------- Selector de Sucursal (modal, persistencia) ---------- */
+function buildSucursalItem(suc) {
+    const div = document.createElement('div');
+    div.className = 'sucursal-item';
+    div.innerHTML = `
+        <div class="sucursal-main">
+            <div class="sucursal-nombre">${suc.nombre}</div>
+            <div class="sucursal-direccion">${suc.direccion || ''}</div>
+        </div>
+        <div class="sucursal-actions">
+            <button class="btn btn-primary btn-choose" data-id="${suc.id}">Elegir</button>
+        </div>
+    `;
+    return div;
+}
+
+function openSucursalModal() {
+    const modal = document.getElementById('sucursalModal');
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSucursalModal() {
+    const modal = document.getElementById('sucursalModal');
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+function initSucursalSelector() {
+    const modal = document.getElementById('sucursalModal');
+    if (!modal) return;
+
+    const list = document.getElementById('sucursalList');
+    list.innerHTML = '';
+    SUCURSALES.forEach(s => {
+        const item = buildSucursalItem(s);
+        list.appendChild(item);
+    });
+
+    // Delegación de clicks en botones Elegir
+    list.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('.btn-choose');
+        if (!btn) return;
+        const id = btn.getAttribute('data-id');
+        const suc = SUCURSALES.find(x => x.id === id);
+        if (!suc) return;
+        setSelectedSucursal(suc);
+        mostrarNotificacion(`Sucursal seleccionada: ${suc.nombre}`);
+        updateWhatsappLinks();
+        updateNavbarSucursal();
+        closeSucursalModal();
+    });
+
+    // Close / skip
+    modal.querySelector('.modal-close').addEventListener('click', () => {
+        closeSucursalModal();
+    });
+    const backdrop = modal.querySelector('.modal-backdrop');
+    if (backdrop) backdrop.addEventListener('click', () => closeSucursalModal());
+    const skip = document.getElementById('sucursalSkip');
+    if (skip) skip.addEventListener('click', () => closeSucursalModal());
+
+    // Mostrar modal sólo si no hay sucursal seleccionada
+    const sel = getSelectedSucursal();
+    if (!sel) openSucursalModal();
+    else {
+        updateWhatsappLinks();
+        updateNavbarSucursal();
+    }
+}
+
+function updateWhatsappLinks() {
+    const wa = getWhatsappNumberForUI();
+    // Actualizar footer/íconos que tengan data-whatsapp anchor
+    const anchors = document.querySelectorAll('a[data-role="whatsapp-link"]');
+    anchors.forEach(a => {
+        a.href = `https://wa.me/${wa}`;
+    });
+    // Actualizar enlaces que usen WHATSAPP_NUMBER en el envío de pedidos (no modifica JS)
+}
+
+// Actualizar la UI del navbar con la sucursal seleccionada
+function updateNavbarSucursal() {
+    const sel = getSelectedSucursal();
+    const nameMobileEl = document.getElementById('sucursalNameMobile');
+    const nameDesktopEl = document.getElementById('sucursalName');
+    const displayEl = document.getElementById('sucursalDisplay');
+    
+    if (sel) {
+        if (nameMobileEl) nameMobileEl.textContent = sel.nombre;
+        if (nameDesktopEl) nameDesktopEl.textContent = sel.nombre;
+        if (displayEl) displayEl.style.display = 'inline-flex';
+    } else {
+        if (nameMobileEl) nameMobileEl.textContent = 'Sucursal';
+        if (nameDesktopEl) nameDesktopEl.textContent = 'Sucursal';
+        if (displayEl) displayEl.style.display = 'inline-flex';
+    }
+}
+
+// Abrir modal desde botón del menú móvil
+document.addEventListener('DOMContentLoaded', () => {
+    const btnMobile = document.getElementById('changeSucursalMobile');
+    if (btnMobile) btnMobile.addEventListener('click', () => {
+        // cuando se abre el menú móvil, la clase .nav-links.mobile estará aplicada; abrir modal y cerrar menú si existe
+        openSucursalModal();
+        const nav = document.querySelector('.nav-links.mobile');
+        if (nav) nav.classList.remove('open');
+    });
+
+    // Botón de sucursal en desktop
+    const btnDesktop = document.getElementById('changeSucursal');
+    if (btnDesktop) btnDesktop.addEventListener('click', () => {
+        openSucursalModal();
+    });
+
+    // Asegurar sincronización inicial
+    updateNavbarSucursal();
+});
 
 function aplicarTema(esClaro, animate = true) {
     const html = document.documentElement;
@@ -362,7 +595,38 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarMenuHamburguesa();
     inicializarFAQ();
     actualizarEstadoHero();
-    
+    inicializarMapaSucursales();  // Inicializar mapa de sucursales
+
+    // Indicador de sección activa en navbar (solo escritorio)
+    if (window.innerWidth > 768) {
+        const sections = [
+            {id: 'hero', link: null},
+            {id: 'productos', link: null},
+            {id: 'instagram', link: null},
+            {id: 'contacto', link: null},
+        ];
+        const navLinks = document.querySelectorAll('.nav-links a');
+        sections.forEach(sec => {
+            sec.link = Array.from(navLinks).find(a => a.getAttribute('href') === '#' + sec.id);
+        });
+
+        function updateActiveSection() {
+            let scrollPos = window.scrollY + 80; // compensar navbar fija
+            let current = sections[0];
+            for (let sec of sections) {
+                const el = document.getElementById(sec.id);
+                if (el && el.offsetTop <= scrollPos) {
+                    current = sec;
+                }
+            }
+            navLinks.forEach(a => a.classList.remove('active'));
+            if (current.link) current.link.classList.add('active');
+        }
+        window.addEventListener('scroll', updateActiveSection);
+        window.addEventListener('resize', updateActiveSection);
+        updateActiveSection();
+    }
+
     // Actualizar estado cada minuto para reflejar cambios de horario
     setInterval(actualizarEstadoHero, 60000);
 
@@ -371,6 +635,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (orderModal && orderModal.getAttribute('aria-hidden') !== 'true') {
         orderModal.setAttribute('aria-hidden', 'true');
     }
+    // Envolver apariciones de la marca "Empa-market" después de que el contenido dinámico cargue
+    // Se llama con pequeño delay para cubrir inserciones asíncronas (productos, etc.)
+    setTimeout(() => {
+        if (typeof wrapEmpaMarket === 'function') wrapEmpaMarket();
+    }, 0.01);
+
+    // Inicializar modal de selección de sucursal (si corresponde)
+    initSucursalSelector();
 });
 
 // MENU HAMBURGUESA: abrir/cerrar en móviles
@@ -455,7 +727,7 @@ function agregarParallax() {
         const hero = document.querySelector('.hero-background');
         if (hero) {
             const scrollPosition = window.scrollY;
-            hero.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+            hero.style.transform = `translateY(${scrollPosition * 0.6}px)`;
         }
     });
 }
@@ -513,11 +785,33 @@ function mostrarProductos(productosAMostrar, filtro) {
             productosAgrupados[seccion].forEach((producto, idx) => {
                 const card = document.createElement('div');
                 card.className = 'producto-card';
+                
+                // Generar estrellas
+                const stars = Array(5).fill(0).map((_, i) => 
+                    i < Math.floor(producto.puntuacion) ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'
+                ).join('');
+                
+                // Determinar color de stock
+                let stockColor = 'en-stock';
+                if (producto.stock < 10) stockColor = 'bajo-stock';
+                if (producto.stock === 0) stockColor = 'sin-stock';
+                
+                // Badge
+                const badgeHTML = producto.badge ? `<span class="producto-badge">${producto.badge}</span>` : '';
+                
                 card.innerHTML = `
-                    <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-image">
+                    <div class="producto-image-container">
+                        <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-image">
+                        ${badgeHTML}
+                        <div class="producto-overlay"></div>
+                    </div>
                     <div class="producto-info">
                         <h3 class="producto-name">${producto.nombre}</h3>
                         <p class="producto-description">${producto.descripcion}</p>
+                        <div class="producto-rating">
+                            <div class="stars">${stars}</div>
+                            <span class="rating-text">${producto.puntuacion} (${producto.resenas})</span>
+                        </div>
                         <p class="producto-price">$${producto.precio.toFixed(2)}</p>
                         <button class="btn-agregar" onclick="agregarAlCarrito(${producto.id})">
                             <i class="bi bi-bag-plus"></i> Agregar
@@ -787,7 +1081,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Enviar a WhatsApp
         const encoded = encodeURIComponent(mensaje);
-        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+        const waNumber = getWhatsappNumberForUI();
+        const waUrl = `https://wa.me/${waNumber}?text=${encoded}`;
 
         try {
             const a = document.createElement('a');
@@ -988,6 +1283,41 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     }, 3000);
 }
 
+// INICIALIZAR TIMERS DE OFERTAS
+function inicializarOfertasTimers() {
+    const timerElements = document.querySelectorAll('.oferta-timer');
+    
+    timerElements.forEach(timerEl => {
+        const deadline = timerEl.getAttribute('data-deadline');
+        
+        function actualizarTimer() {
+            const now = new Date().getTime();
+            const countdownDate = new Date(deadline).getTime();
+            const distance = countdownDate - now;
+            
+            if (distance < 0) {
+                timerEl.querySelector('.timer-value').textContent = '¡Expirada!';
+                timerEl.style.opacity = '0.5';
+                return;
+            }
+            
+            const dias = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            let tiempoText = '';
+            if (dias > 0) tiempoText = `${dias}d ${horas}h`;
+            else if (horas > 0) tiempoText = `${horas}h ${minutos}m`;
+            else tiempoText = `${minutos}m`;
+            
+            timerEl.querySelector('.timer-value').textContent = tiempoText;
+        }
+        
+        actualizarTimer();
+        setInterval(actualizarTimer, 60000); // Actualizar cada minuto
+    });
+}
+
 // ANIMACIONES
 const style = document.createElement('style');
 style.textContent = `
@@ -1126,5 +1456,210 @@ document.addEventListener('click', (e) => {
         });
     }
 });
+
+// CARRUSEL DE IMÁGENES HERO CON DESVANECIMIENTO
+const heroImages = [
+    'assets/Hero section.jpg',
+    'assets/img hero 2.jpg',
+    'assets/img hero 3.jpg',
+    'assets/img hero 4.jpg',
+    'assets/img hero 5.jpg'
+];
+
+let currentHero = 0;
+const heroImg = document.getElementById('hero-img');
+
+if (heroImg) {
+    function fadeHeroImage(nextIndex) {
+        heroImg.style.opacity = 0;
+        setTimeout(() => {
+            heroImg.src = heroImages[nextIndex];
+            heroImg.style.opacity = 1;
+        }, 1600); // Duración del fade-out (1s)
+    }
+
+    setInterval(() => {
+        currentHero = (currentHero + 1) % heroImages.length;
+        fadeHeroImage(currentHero);
+    }, 4000); // Cambia cada 4 segundos (más tiempo para que el fade sea suave)
+}
+
+/*
+ * wrapEmpaMarket
+ * Busca apariciones de la marca "Empa-market" (case-insensitive, con o sin guión)
+ * y las envuelve en un <span class="empa-market"> para aplicar la tipografía Roboto Slab.
+ * Evita reemplazar dentro de <script>, <style>, <code>, <pre>, inputs, botones y enlaces.
+ */
+function wrapEmpaMarket() {
+    const regex = /Empa[-\s]?market/gi;
+    const excludedTags = ['SCRIPT','STYLE','NOSCRIPT','IFRAME','CODE','PRE','TEXTAREA','INPUT','BUTTON'];
+
+    function isInsideExcluded(node) {
+        if (!node || !node.parentNode) return true;
+        // Evitar envolver si ya está dentro de un .empa-market
+        if (node.parentNode && node.parentNode.closest && node.parentNode.closest('.empa-market')) return true;
+        let el = node.parentNode;
+        while (el && el.nodeType === 1) {
+            if (excludedTags.includes(el.nodeName)) return true;
+            el = el.parentNode;
+        }
+        return false;
+    }
+
+    function processTextNode(textNode) {
+        if (!textNode || !textNode.nodeValue) return;
+        if (!regex.test(textNode.nodeValue)) return;
+        if (isInsideExcluded(textNode)) return;
+
+        const text = textNode.nodeValue;
+        const frag = document.createDocumentFragment();
+        let lastIndex = 0;
+
+        text.replace(regex, (match, offset) => {
+            if (offset > lastIndex) {
+                frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+            }
+            const span = document.createElement('span');
+            span.className = 'empa-market';
+            span.textContent = match;
+            frag.appendChild(span);
+            lastIndex = offset + match.length;
+            return match;
+        });
+
+        if (lastIndex < text.length) {
+            frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+        }
+
+        try {
+            textNode.parentNode.replaceChild(frag, textNode);
+        } catch (e) {
+            // Fallback silencioso
+        }
+    }
+
+    // Pase inicial sobre nodos de texto
+    try {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode: function(node) {
+                if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                if (isInsideExcluded(node)) return NodeFilter.FILTER_REJECT;
+                return regex.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            }
+        }, false);
+
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(processTextNode);
+    } catch (err) {
+        // no hacer nada si TreeWalker falla
+    }
+
+    // Observar nodos añadidos dinámicamente
+    try {
+        const mo = new MutationObserver(mutations => {
+            mutations.forEach(m => {
+                m.addedNodes.forEach(n => {
+                    if (n.nodeType === Node.TEXT_NODE) {
+                        processTextNode(n);
+                    } else if (n.nodeType === Node.ELEMENT_NODE) {
+                        // buscar nodos de texto dentro del elemento añadido
+                        n.querySelectorAll && n.querySelectorAll('*').forEach(el => {
+                            el.childNodes && el.childNodes.forEach(child => {
+                                if (child.nodeType === Node.TEXT_NODE) processTextNode(child);
+                            });
+                        });
+                    }
+                });
+            });
+        });
+        mo.observe(document.body, { childList: true, subtree: true });
+    } catch (err) {
+        // Silencioso
+    }
+}
+
+// INICIALIZAR MAPA DE SUCURSALES CON LEAFLET
+function inicializarMapaSucursales() {
+    // Intentar obtener el contenedor del mapa
+    const mapContainer = document.getElementById('map-contact');
+    if (!mapContainer || typeof L === 'undefined') return; // Leaflet no está disponible
+
+    // Coordenadas centrales para el mapa (Buenos Aires, Argentina)
+    const centerLat = -34.8;
+    const centerLng = -58.5;
+
+    // Inicializar el mapa
+    const map = L.map('map-contact', {
+        center: [centerLat, centerLng],
+        zoom: 11,
+        scrollWheelZoom: true,
+        dragging: true
+    });
+
+    // Añadir capa de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19,
+        minZoom: 8
+    }).addTo(map);
+
+    // Crear grupo de marcadores para zoom automático
+    const featureGroup = L.featureGroup();
+
+    // Añadir marcadores para cada sucursal
+    SUCURSALES.forEach((sucursal) => {
+        // Coordenadas aproximadas para cada sucursal (formato: [lat, lng])
+        const coords = obtenerCoordenadasSucursal(sucursal.id);
+        
+        if (coords) {
+            // Crear marcador personalizado
+            const marker = L.marker(coords, {
+                title: sucursal.nombre,
+                riseOnHover: true
+            })
+            .bindPopup(`
+                <div style="font-family: 'Poppins', sans-serif; font-size: 0.85rem;">
+                    <strong style="color: #10b981; display: block; margin-bottom: 6px;">${sucursal.nombre}</strong>
+                    <p style="margin: 4px 0; color: #666;">${sucursal.direccion}</p>
+                    <a href="tel:${sucursal.whatsapp}" style="color: #10b981; text-decoration: none; font-weight: 500; display: block; margin-top: 8px;">
+                        📞 Llamar
+                    </a>
+                    <a href="https://wa.me/${sucursal.whatsapp}" target="_blank" style="color: #10b981; text-decoration: none; font-weight: 500;">
+                        📱 WhatsApp
+                    </a>
+                </div>
+            `)
+            .addTo(map);
+            
+            featureGroup.addLayer(marker);
+        }
+    });
+
+    // Ajustar zoom y centrado automáticamente para ver todos los marcadores
+    if (featureGroup.getLayers().length > 0) {
+        map.fitBounds(featureGroup.getBounds(), { padding: [50, 50] });
+    }
+}
+
+// Función auxiliar para obtener coordenadas aproximadas de cada sucursal
+function obtenerCoordenadasSucursal(sucursalId) {
+    const coordenadas = {
+        'varela': [-34.7707, -58.3378],
+        'lomas_forougue': [-34.8061, -58.4381],
+        'monte_grande': [-34.8403, -58.4661],
+        'banfield': [-34.7756, -58.2992],
+        'temperley': [-34.8242, -58.3314],
+        'lanus_oeste': [-34.7261, -58.4062],
+        'san_francisco_solano': [-34.6787, -58.3701],
+        'burzaco': [-34.8868, -58.3996],
+        'ezeiza': [-34.8638, -58.5314],
+        'adrogue': [-34.8833, -58.3834],
+        'lomas_boedo': [-34.8061, -58.4381],
+        'constitucion': [-34.6223, -58.3874]
+    };
+    
+    return coordenadas[sucursalId] || null;
+}
 
 
