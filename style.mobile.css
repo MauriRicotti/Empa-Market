@@ -6,27 +6,85 @@
 */
 
 @media (max-width: 768px) {
-  /* Desactivar filtros pesados */
+  /* Mantener eliminación de filtros pesados, pero permitir animaciones ligeras. */
   * {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     filter: none !important;
-    /* Eliminar sombras y sombras de texto que generan repaints */
-    box-shadow: none !important;
-    text-shadow: none !important;
-    /* Evitar transiciones y animaciones que consumen CPU/GPU */
-    transition: none !important;
-    animation: none !important;
-    /* Restaurar will-change para evitar hints costosos */
+    /* No forzamos a quitar todas las sombras/transitions globalmente: esto rompe UX.
+       En su lugar, restauramos `will-change` y aplicamos transiciones seleccionadas más abajo. */
     will-change: auto !important;
   }
 
-  /* Permitir transición suave para las imágenes del hero en móviles */
+  /* Transiciones/animaciones selectivas y ligeras para móviles */
+  .hero-content,
+  .hero-title,
+  .hero-brand,
+  .hero-subtitle,
+  .producto-card,
+  .producto-image,
+  .producto-overlay,
+  .cart-icon,
+  .close-menu,
+  .hamburger,
+  .nav-links.mobile,
+  .cart-sidebar,
+  .modal-panel,
+  .policy-modal-panel,
+  .order-modal-panel {
+    transition: transform 260ms ease, opacity 240ms ease, background 240ms ease !important;
+  }
+
+  /* Transiciones más específicas para imágenes y tarjetas */
+  .producto-image {
+    transition: transform 360ms cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+  .producto-card {
+    transition: opacity 360ms ease, transform 360ms ease, border-color 240ms ease !important;
+  }
+
+  /* Reactivar pequeño 'shake' del carrito en hover/tap si el dispositivo lo permite */
+  .cart-icon:hover {
+    animation: cartShake 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  }
+
+  /* Rehabilitar animaciones de entrada existentes (definidas en style.css) */
+  .hero-content {
+    animation: fadeInUp 900ms ease-out both !important;
+  }
+
+  .producto-card,
+  .oferta-card,
+  .testimonios-card {
+    animation: cardSlideIn 600ms ease-out both !important;
+  }
+
+  /* Efecto "shine" ligero: mantener sólo la transición de opacidad para ahorrar GPU */
+  .producto-card::after {
+    transition: opacity 320ms ease !important;
+  }
+  .producto-image-container::after {
+    /* Desactivar animación de fondo grande en móviles por rendimiento */
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  /* Menús y sidebar: animaciones por transform (más económicas) */
+  .nav-links.mobile {
+    transition: transform 300ms ease !important;
+    will-change: transform !important;
+  }
+  .cart-sidebar {
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+    will-change: transform !important;
+  }
+
+  /* Ajustes estéticos y layout móviles (se mantienen) */
   #hero-img {
     transition: opacity 2s ease-in-out !important;
   }
 
-  /* Ajustes específicos para mejorar la experiencia móvil */
   .hero {
     height: 90vh !important;
     min-height: 90vh !important;
@@ -48,20 +106,12 @@
     right: -100% !important;
   }
 
-  .instagram-item:hover,
-  .instagram-card:hover,
-  .producto-card:hover,
-  .faq-item:hover,
-  .testimonios-card:hover,
-  .cart-icon:hover,
-  .close-menu:hover,
-  .btn-primary:hover {
-    transform: none !important;
-  }
-
-  .back-to-top,
-  .whatsapp-widget {
-    display: none !important;
+  /* Ocultar widgets muy pequeños en pantallas diminutas (optativo) */
+  @media (max-width: 420px) {
+    .back-to-top,
+    .whatsapp-widget {
+      display: none !important;
+    }
   }
 
   /* Mejora de scroll en iOS */
@@ -69,11 +119,91 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Reducir la carga de imágenes de fondo (si se quiere aplicar más adelante) */
+  /* Mantener fondos centrados y cover para imágenes responsive */
   .hero-background,
   .instagram-media {
     background-size: cover !important;
     background-position: center !important;
+  }
+
+  /* Hero: botones siempre lado a lado y reducidos en móviles */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* Asegurar que todos los botones del hero se alineen verticalmente
+     y tengan la misma altura/centrado en móviles. */
+  .hero-buttons .btn,
+  .hero-buttons a.btn,
+  .hero-buttons button.btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 0.875rem !important;
+    border-radius: 8px !important;
+    min-width: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+    min-height: 46px !important;
+  }
+
+  .hero-buttons .btn i,
+  .hero-buttons a.btn i,
+  .hero-buttons button.btn i {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+    height: auto !important;
+  }
+
+  /* Selectores de fallback para botones concretos (si existen las clases específicas) */
+  .hero .btn-instagram,
+  .hero .btn-order,
+  .hero-buttons a.btn {
+    padding: 8px 10px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Acercar 'Nuestras Delicias' al título EMPA-MARKET en el hero */
+  .hero-brand {
+    margin-bottom: 0.25rem !important;
+  }
+
+  .hero-subtitle {
+    margin-top: 0 !important;
+    font-size: 1.15rem !important;
+  }
+
+  /* Añadir subtítulo pequeño debajo de la marca en la navbar solo en móviles */
+  .navbar-container .logo::after {
+    content: 'Nuestras Delicias' !important;
+    display: block !important;
+    font-size: 0.65rem !important;
+    line-height: 0.1 !important;
+    margin-top: 2px !important;
+    color: var(--text) !important;
+    opacity: 0.9 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.4px !important;
+    text-transform: none !important;
+  }
+
+  /* Asegurar que la caja del logo admite el subtítulo sin romper el layout */
+  .navbar-container .logo {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2px !important;
   }
 }
 

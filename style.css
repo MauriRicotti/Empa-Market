@@ -33,7 +33,7 @@
     z-index: 10030;
     box-shadow: 0 6px 18px rgba(16,185,129,0.12), 0 2px 6px rgba(0,0,0,0.4);
     transition: transform 180ms ease, box-shadow 180ms ease, background 140ms ease;
-    backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px); */
     border: 1px solid rgba(255,255,255,0.06);
 }
 .close-menu:hover {
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 /* NAVBAR */
 .navbar {
     background: var(--navbar);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     position: fixed;
     top: 0;
     left: 0;
@@ -175,6 +175,70 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary);
     flex-shrink: 0;
     white-space: nowrap;
+}
+
+/* Subtítulo bajo la marca en la navbar (aplica también en escritorio) */
+/* Mostrar el subtítulo del logo SOLO en móviles; en escritorio lo colocamos
+   debajo del título principal del hero (usando .hero-subtitle existente). */
+@media (max-width: 768px) {
+    .navbar-container .logo::after {
+        content: 'Nuestras Delicias';
+        display: block;
+        font-size: 0.85rem;
+        line-height: 1;
+        margin-top: 2px;
+        color: var(--text);
+        opacity: 0.95;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+        text-transform: none;
+    }
+}
+
+/* En pantallas grandes, asegurarnos que el subtítulo dentro del hero se muestre
+   justo debajo de "EMPA-MARKET" y con tamaño/espaciado similar al de móvil. */
+@media (min-width: 769px) {
+    .hero-subtitle {
+        font-size: 1.15rem;
+        margin-top: 0.4rem;
+        margin-bottom: 2.5rem;
+        font-weight: 600;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    /* Asegurar que la marca principal y subtítulo queden centrados en una columna */
+    .hero-brand {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Mostrar subtítulo también en la navbar en pantallas grandes.
+       Convertimos la `.logo` en columna para que el subtítulo quede debajo
+       del texto principal sin desordenar el layout. Ajustes leves de gap. */
+    .navbar-container .logo {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+
+    /* Si prefieres centrar el logo (icon + texto) en la navbar, cambia
+       `align-items` a `center`. Por ahora lo dejamos `flex-start` para no
+       desplazar el resto de elementos de la navbar. */
+
+    .navbar-container .logo::after {
+        content: 'Nuestras Delicias';
+        display: block;
+        font-size: 0.85rem;
+        line-height: 0.1;
+        margin-top: 2px;
+        color: var(--text);
+        opacity: 0.95;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+        text-transform: none;
+    }
 }
 /* Mostrar/ocultar botón de tema según tamaño de pantalla */
 .theme-toggle-mobile { display: none !important; }
@@ -303,7 +367,6 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 6px;
     font-weight: 600;
-    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
     flex-shrink: 0;
     white-space: nowrap;
 }
@@ -311,8 +374,6 @@ h1, h2, h3, h4, h5, h6 {
 .cart-icon:hover {
     transform: translateY(-2px);
     background: var(--primary-dark);
-    box-shadow: 0 10px 28px rgba(16, 185, 129, 0.35);
-    animation: cartShake 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @keyframes cartShake {
@@ -399,7 +460,6 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     border-radius: 50px;
     font-weight: 600;
-    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -408,7 +468,6 @@ h1, h2, h3, h4, h5, h6 {
 .sucursal-display .btn:hover {
     transform: translateY(-2px);
     background: var(--primary-dark);
-    box-shadow: 0 10px 28px rgba(16, 185, 129, 0.35);
 }
 .sucursal-display .btn i { font-size: 0.95rem; }
 
@@ -452,6 +511,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     margin-top: 0;
     border-radius: 0 0 50px 50px;
+    border-bottom: 1.5px solid #10B981;
 }
 
 #hero-img {
@@ -630,7 +690,7 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
     z-index: 1000;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px); */
 }
 
 .hero-status:hover .status-tooltip {
@@ -1352,7 +1412,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2.4rem;
     border: 1px solid rgba(255,255,255,0.04);
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px); */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -2352,7 +2412,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
 }
 /* Panel del modal de políticas: fondo sólido para que el contenido sea legible sobre el blur */
 .policy-modal-panel {
@@ -2488,7 +2548,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
 }
 .order-modal-panel {
     position: relative;
@@ -2727,7 +2787,7 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0.9rem 0;
         min-height: var(--navbar-height);
         box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-        backdrop-filter: blur(6px);
+        /* backdrop-filter: blur(6px); */
     }
 
     .navbar-container {
