@@ -731,13 +731,22 @@ function agregarParallax() {
             hero.style.transform = `translateY(${scrollPosition * 0.6}px)`;
         }
 
-        // Parallax para divisor-parallax y divisor-parallax-special
-        document.querySelectorAll('.divisor-parallax, .divisor-parallax-special').forEach(div => {
-            // Efecto más suave en móviles
-            const isMobile = window.innerWidth <= 768;
-            const factor = isMobile ? 0.25 : 0.5;
-            div.style.backgroundPosition = `center ${-window.scrollY * factor}px`;
-        });
+        // Parallax effect for divisor-parallax sections (mobile only)
+        // Only apply JavaScript parallax on mobile devices (avoid conflicting with CSS parallax on desktop)
+        if (window.innerWidth <= 768) {
+            const parallaxSections = document.querySelectorAll('.divisor-parallax');
+            parallaxSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const scrollPosition = window.scrollY;
+                const elementTop = section.offsetTop;
+                
+                // Calculate parallax offset only when section is in viewport
+                if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                    const offset = (scrollPosition - elementTop) * 0.5;
+                    section.style.backgroundPosition = `center ${offset}px`;
+                }
+            });
+        }
     });
 }
 
@@ -842,21 +851,24 @@ function mostrarProductos(productosAMostrar, filtro) {
             const cards = grid.querySelectorAll('.producto-card');
             cards.forEach((card, i) => {
                 card.classList.remove('show');
-                // Reducir el delay para que aparezcan más rápido
-                card.style.transitionDelay = (i * 30) + 'ms';
+                // Aplicar un delay solo para la animación de entrada (stagger)
+                card.style.transitionDelay = (i * 60) + 'ms';
 
+                // small timeout to allow the browser to apply the delay y añadir la clase
                 setTimeout(() => {
                     card.classList.add('show');
 
-                    // Reducir la duración de la animación
+                    // Después de que termine la animación de entrada, eliminar el transition-delay
+                    // para que las transiciones de hover respondan de forma inmediata y consistente.
                     setTimeout(() => {
                         try {
                             card.style.removeProperty('transition-delay');
                         } catch (e) {
+                            // fallback: poner a 0ms si removeProperty no está disponible
                             card.style.transitionDelay = '0ms';
                         }
-                    }, 200); // 200ms > duración de la transición (más rápida)
-                }, 10 + i * 30);
+                    }, 360); // 360ms > duración de la transición (300ms) para asegurar que terminó
+                }, 20 + i * 60);
             });
         });
     }, 280);
@@ -1814,6 +1826,5 @@ function obtenerCoordenadasSucursal(sucursalId) {
     
     return coordenadas[sucursalId] || null;
 }
-
 
 

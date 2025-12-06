@@ -168,10 +168,11 @@
 
   /* Ajustes específicos para el divisor parallax en móviles */
   .divisor-parallax {
-    height: 360px !important;
-    /* background-attachment: scroll !important;  Eliminado para permitir parallax en móviles */
+    height: 680px !important;
+    background-attachment: fixed !important; /* Habilitar parallax effect en móviles */
     background-position: center !important;
     background-size: cover !important;
+    overflow: hidden !important;
   }
 
   .parallax-content {
@@ -243,7 +244,7 @@
   }
 
   .divisor-parallax-special .parallax-content {
-    min-height: auto !important;
+    min-height: 680px !important;
     padding: 2rem 1rem !important;
   }
 
