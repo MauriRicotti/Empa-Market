@@ -169,7 +169,7 @@
   /* Ajustes específicos para el divisor parallax en móviles */
   .divisor-parallax {
     height: 360px !important;
-    background-attachment: scroll !important; /* fixed perjudica en móviles */
+    /* background-attachment: scroll !important;  Eliminado para permitir parallax en móviles */
     background-position: center !important;
     background-size: cover !important;
   }
