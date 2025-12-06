@@ -2960,7 +2960,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .divisor-parallax{
-    height: 500px;
+    height: 550px;
     background-image: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.46)), url('assets/wallpaper empanadas.jpg');
     background-attachment: fixed;
     background-position: center;
