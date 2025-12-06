@@ -35,16 +35,9 @@
                 <span class="hamburger-line"></span>
             </button>
             <ul class="nav-links">
-                <!-- Botón de tema móvil comentado a petición del usuario
-                <li class="nav-item mobile-only">
-                    <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Cambiar tema">
-                        <i class="bi bi-moon-fill"></i>
-                    </button>
-                </li>
-                -->
                 <li><a href="#hero">Inicio</a></li>
-                <!-- Promociones removed -->
                 <li><a href="#productos">Productos</a></li>
+                <li><a href="#por-que-elegirnos">Por qué elegirnos</a></li>
                 <li><a href="#instagram">Instagram</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li class="mobile-only">
@@ -54,11 +47,7 @@
                 </li>
             </ul>
             <div class="navbar-right">
-                <!-- Botón de tema de escritorio comentado a petición del usuario
-                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-                    <i class="bi bi-moon-fill"></i>
-                </button>
-                -->
+                
                 <div class="sucursal-display" id="sucursalDisplay" style="display: none;">
                     <button class="btn" id="changeSucursal" aria-label="Cambiar sucursal">
                         <i class="bi bi-shop"></i>
@@ -121,11 +110,10 @@
             </div>
         </div>
 
-    <!-- Promociones removed -->
     <!-- SECCIÓN DE PRODUCTOS -->
     <section class="productos" id="productos">
         <div class="container">
-            <h2 class="section-title">Nuestras Empanadas</h2>
+            <h2 class="section-title">Nuestros Productos</h2>
             <p class="section-subtitle">Hechas con ingredientes frescos y amor</p>
             
             <!-- FILTROS -->
@@ -153,8 +141,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- SECCIÓN SOBRE NOSOTROS -->
     <section class="about" id="about">
@@ -194,13 +180,79 @@
         </div>
     </section>
 
+    <!-- SECCIÓN: POR QUÉ ELEGIRNOS -->
+    <section class="por-que-elegirnos" id="por-que-elegirnos">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <p class="section-subtitle">Descubre qué nos hace especiales</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                    </div>
+                    <h3>Calidad Premium</h3>
+                    <p>Seleccionamos solo los mejores ingredientes frescos. Cada empanada es un compromiso con la excelencia.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <h3>Preparación Rápida</h3>
+                    <p>Listos en 15-20 minutos sin comprometer la calidad. Tu pedido, siempre fresco y caliente.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <h3>Variedad Infinita</h3>
+                    <p>20+ sabores para elegir. Desde clásicos hasta innovadores, hay algo para cada paladar.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h3>Envío a Domicilio</h3>
+                    <p>Entregamos en tu casa rápido y sin complicaciones. Disfruta de nuestras delicias donde quieras.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <h3>Hecho con Amor</h3>
+                    <p>Cada empanada se prepara con pasión familiar. Es más que comida, es dedicación.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+                    <h3>Precios Justos</h3>
+                    <p>Excelente relación calidad-precio. Disfrutarás de lo mejor sin gastar de más.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisor Parallax -->
+    <section class="divisor-parallax">
+        <div class="parallax-content">
+            <h2>¡Descubrí el sabor que conquista corazones!</h2>
+            <p>Empanadas artesanales hechas con pasión y los mejores ingredientes.</p>
+            <a href="#productos" aria-label="Ir a Productos" class="btn btn-primary iniciar-orden">Iniciar orden</a>
+        </div>
+    </section>
+
     <!-- SECCIÓN INSTAGRAM -->
     <section class="instagram" id="instagram">
         <div class="container">
             <h2 class="section-title">Síguenos en Instagram</h2>
             <p class="section-subtitle">@empamarketoficial</p>
 
-            <!-- 6 cards grandes que simulan publicaciones de Instagram -->
             <div class="instagram-feed instagram-grid-large">
                 <a class="instagram-card" href="https://instagram.com" target="_blank" aria-label="Ver publicación 1">
                     <div class="instagram-media" style="background-image: url('assets/Empanada 2.png');"></div>
@@ -427,7 +479,34 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE CONTACTO / FRANQUICIA -->
+    <!-- Divisor Parallax #2 - Con Animación Especial -->
+    <section class="divisor-parallax divisor-parallax-special">
+        <div class="parallax-particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+        <div class="parallax-content">
+            <h2>Tu Satisfacción es Nuestro Éxito</h2>
+            <p>Miles de clientes confían en nosotros. Únete a la familia EMPA-MARKET</p>
+            <div class="parallax-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-text">Clientes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100K+</span>
+                    <span class="stat-text">Pedidos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">45★</span>
+                    <span class="stat-text">Calificación</span>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="contacto" id="contacto">
         <div class="container">
             <h2 class="section-title">Abre tu Propia Franquicia</h2>

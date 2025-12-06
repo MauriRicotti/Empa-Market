@@ -860,12 +860,20 @@ function mostrarProductos(productosAMostrar, filtro) {
 // FILTROS
 function inicializarFiltros() {
     const filtros = document.querySelectorAll('.filter-btn');
+    if (!filtros || filtros.length === 0) return;
+
+    // Leer filtro guardado (fallback a 'all')
+    const guardado = localStorage.getItem('productosFiltro') || 'all';
+
     filtros.forEach(btn => {
         btn.addEventListener('click', () => {
             filtros.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             filtroActual = btn.dataset.filter;
-            
+
+            // Persistir la elección del usuario
+            try { localStorage.setItem('productosFiltro', filtroActual); } catch (e) { /* ignore */ }
+
             if (filtroActual === 'all') {
                 mostrarProductos(productos, 'all');
             } else {
@@ -874,6 +882,17 @@ function inicializarFiltros() {
             }
         });
     });
+
+    // Aplicar filtro guardado al cargar la página
+    const inicial = Array.from(filtros).find(b => b.dataset.filter === guardado) || filtros[0];
+    if (inicial) {
+        // Marcar visualmente y renderizar contenido correspondiente
+        filtros.forEach(b => b.classList.remove('active'));
+        inicial.classList.add('active');
+        filtroActual = inicial.dataset.filter;
+        if (filtroActual === 'all') mostrarProductos(productos, 'all');
+        else mostrarProductos(productos.filter(p => p.categoria === filtroActual), filtroActual);
+    }
 }
 
 // HOVER EN MOBILE - Mantener estado hover al tocar
@@ -1275,21 +1294,29 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
         iconClass = 'bi-info-circle-fill';
     }
     
+    // Ajustar tamaño en móviles
+    const isMobile = window.innerWidth <= 768;
+    const padding = isMobile ? '10px 14px' : '16px 24px';
+    const fontSize = isMobile ? '0.8rem' : '0.95rem';
+    const maxWidth = isMobile ? '240px' : '320px';
+    const iconSize = isMobile ? '0.95rem' : '1.2rem';
+    const gap = isMobile ? '6px' : '12px';
+    
     notificacion.style.cssText = `
         background: ${bgColor};
         color: white;
-        padding: 16px 24px;
+        padding: ${padding};
         border-radius: 10px;
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: ${fontSize};
         animation: slideIn 0.3s ease-out;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        max-width: 320px;
+        max-width: ${maxWidth};
         word-wrap: break-word;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: ${gap};
         pointer-events: auto;
         transition: transform 0.3s ease;
     `;
@@ -1298,7 +1325,7 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     const icono = document.createElement('i');
     icono.className = `bi ${iconClass}`;
     icono.style.cssText = `
-        font-size: 1.2rem;
+        font-size: ${iconSize};
         flex-shrink: 0;
     `;
     
@@ -1401,7 +1428,11 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// SCROLL EFFECT PARA ELEMENTOS
+// ============================================
+// ANIMACIONES DE ENTRADA CON SCROLL
+// ============================================
+
+// Observer para animar elementos cuando entran al viewport
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -1410,21 +1441,82 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
+            
+            // Si es un stat-item, animar los números
+            if (entry.target.classList.contains('stat-item')) {
+                animateCounter(entry.target);
+            }
+            
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observar elementos cuando se cargan
+// Función para animar contadores
+function animateCounter(element) {
+    const numberElement = element.querySelector('.stat-number');
+    if (!numberElement) return;
+    
+    const text = numberElement.textContent;
+    const match = text.match(/(\d+)/);
+    
+    if (match) {
+        const finalNumber = parseInt(match[1]);
+        const isThousand = text.includes('K+');
+        const displayNumber = isThousand ? finalNumber * 1000 : finalNumber;
+        
+        let currentNumber = 0;
+        const increment = Math.ceil(displayNumber / 50);
+        
+        const counter = setInterval(() => {
+            currentNumber += increment;
+            if (currentNumber >= displayNumber) {
+                currentNumber = displayNumber;
+                clearInterval(counter);
+            }
+            
+            if (isThousand) {
+                numberElement.textContent = Math.floor(currentNumber / 1000) + 'K+';
+            } else if (text.includes('★')) {
+                numberElement.textContent = (currentNumber / 10).toFixed(1) + '★';
+            } else {
+                numberElement.textContent = currentNumber + '+';
+            }
+        }, 30);
+    }
+}
+
+// Observar todos los feature-cards
 document.addEventListener('DOMContentLoaded', () => {
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(card);
+    });
+
+    // Observar los stat-items para animar contadores
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+        observer.observe(item);
+    });
+
+    // Observar otros elementos
     document.querySelectorAll('.producto-card, .instagram-item, .info-item, .about-text, .about-image').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.5s ease-out';
         observer.observe(el);
     });
+
+    // Agregar clase visible para que se animen
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+        .feature-card.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(styleSheet);
 });
 
 // BACK TO TOP - botón flotante: inicializar después de que cargue el DOM
@@ -1717,5 +1809,6 @@ function obtenerCoordenadasSucursal(sucursalId) {
     
     return coordenadas[sucursalId] || null;
 }
+
 
 
